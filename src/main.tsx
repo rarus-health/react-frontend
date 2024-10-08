@@ -9,6 +9,10 @@ import Registration from "./pages/Registration";
 import Root from "./routes/root";
 import ResetPasswordRequest from "./pages/ResetPassswordRequest";
 import ResetPasswordConfirmation from "./pages/ResetPassswordConfirmation";
+import WhoNeedsHelp from "./pages/WhoNeedsHelp";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import PersonalDataIntro from "./pages/PersonalDataProcessing";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +42,26 @@ const router = createBrowserRouter([
   {
     path: "/reset-password",
     element: <ResetPasswordConfirmation />,
+  },
+  {
+    path: "/onboarding/who-needs-help",
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <WhoNeedsHelp />
+        <Footer />
+      </div>
+    ),
+  },
+  {
+    path: "/onboarding/personal-data-intro",
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <PersonalDataIntro />
+        <Footer />
+      </div>
+    ),
   },
 ]);
 

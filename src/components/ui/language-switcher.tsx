@@ -14,7 +14,7 @@ export function LanguageSwitcher() {
       <div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="flex items-center gap-2">
+            <Button variant="outline" className="flex items-center gap-2 px-0">
               <GlobeIcon className="h-5 w-5" />
               <span>ES</span>
               <ChevronDownIcon className="h-4 w-4" />

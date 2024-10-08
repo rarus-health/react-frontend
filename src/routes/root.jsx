@@ -25,8 +25,10 @@ export default function Root() {
             <div className="sr-only" aria-live="polite"></div>
           </form>
           <form method="post">
-            <Link to="/first">first</Link>
-            <button type="submit">New</button>
+            <Link to="/onboarding/who-needs-help">Who needs help</Link>
+            <Link to="/onboarding/personal-data-intro">
+              /personal-data-intro
+            </Link>
           </form>
         </div>
         <nav>
