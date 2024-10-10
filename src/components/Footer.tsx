@@ -6,7 +6,7 @@ import mail from "@/assets/footer/mail.svg";
 
 const DoctorFooter: React.FC = () => {
   return (
-    <footer className="hidden md:flex px-10 md:px-36  justify-between items-center bg-[#F7F9FA] py-[30px] w-full relative z-10">
+    <footer className="hidden md:flex px-10 md:px-36  justify-between items-center py-[30px] w-full relative z-10">
       <p className="font-montserrat font-medium text-[16px] leading-[120%] text-[#576CBE]">
         Av. Apoquindo 2930, Piso 2, Las Condes, Región Metropolitana, Santiago,
         Chile

@@ -1,0 +1,26 @@
+/* src/styles/textStyles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-body {
+    @apply font-[montserrat] text-[14px] leading-[18px] text-[#7E99AC];
+  }
+
+  .text-heading {
+    @apply font-[montserrat] font-semibold text-[36px] leading-[44px] text-[#202427];
+  }
+
+  .text-heading-mobile {
+    @apply font-[montserrat] font-semibold text-[18px] leading-[24px] text-[#202427];
+  }
+
+  .text-caption {
+    @apply font-[montserrat] text-[14px] leading-[20px] text-[#576CBE];
+  }
+
+  .text-highlight {
+    @apply font-[montserrat] font-bold text-[#FF5733];
+  }
+}
