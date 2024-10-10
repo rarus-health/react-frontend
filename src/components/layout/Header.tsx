@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/rarus-logo-horizontal.svg";
-import { LanguageSwitcher } from "./ui/language-switcher";
+import { LanguageSwitcher } from "../ui/language-switcher";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();

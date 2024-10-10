@@ -6,15 +6,16 @@ import "./styles/modal.css";
 import "./styles/textStyles.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Login from "./pages/Login";
-import Registration from "./pages/Registration";
+import Login from "./pages/UserAuth/Login";
+import Registration from "./pages/UserAuth/Registration";
 import Root from "./routes/root";
-import ResetPasswordRequest from "./pages/ResetPassswordRequest";
-import ResetPasswordConfirmation from "./pages/ResetPassswordConfirmation";
-import WhoNeedsHelp from "./pages/WhoNeedsHelp";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PersonalDataIntro from "./pages/PersonalDataIntro";
+import ResetPasswordRequest from "./pages/UserAuth/ResetPassswordRequest";
+import ResetPasswordConfirmation from "./pages/UserAuth/ResetPassswordConfirmation";
+import WhoNeedsHelp from "./pages/OnboardingForms/WhoNeedsHelp";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import PersonalDataIntro from "./pages/OnboardingForms/PersonalDataIntro";
+import HeaderUserAuth from "./components/layout/HeaderUserAuth";
 
 const router = createBrowserRouter([
   {
@@ -31,19 +32,39 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <HeaderUserAuth />
+        <Login />
+      </div>
+    ),
   },
   {
     path: "/registration",
-    element: <Registration />,
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <HeaderUserAuth />
+        <Registration />
+      </div>
+    ),
   },
   {
     path: "/reset-password-request",
-    element: <ResetPasswordRequest />,
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <HeaderUserAuth />
+        <ResetPasswordRequest />
+      </div>
+    ),
   },
   {
     path: "/reset-password",
-    element: <ResetPasswordConfirmation />,
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <HeaderUserAuth />
+        <ResetPasswordConfirmation />
+      </div>
+    ),
   },
   {
     path: "/onboarding/who-needs-help",

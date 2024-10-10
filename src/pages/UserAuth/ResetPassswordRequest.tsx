@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { LanguageSwitcher } from "@/components/ui/language-switcher.tsx";
 
 export default function ResetPassswordRequest() {
   const [success, setSuccess] = useState(false);
@@ -12,11 +11,8 @@ export default function ResetPassswordRequest() {
     setSuccess(true);
   };
   return (
-    <div className=" relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
-      <div className="absolute top-4 right-0">
-        <LanguageSwitcher />
-      </div>
-      <div className="w-full m-auto lg:max-w-lg">
+    <div className="flex  md:justify-center flex-col items-center min-h-screen overflow-hidden mb-10">
+      <div className="w-full mx-auto lg:max-w-lg">
         {success ? (
           <div className="flex w-[312px] text-center flex-col justify-center items-center min-h-screen overflow-hidden">
             <p className="text-green-600">

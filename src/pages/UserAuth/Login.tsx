@@ -10,10 +10,9 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
-import logo from "../assets/rarus-logo-vertical.png";
-import { LanguageSwitcher } from "@/components/ui/language-switcher.tsx";
-import useStore from "../stores/firstOnboardingStore";
-import FirstOnboarding from "@/pages/FirstOnboarding";
+import logo from "@/assets/rarus-logo-vertical.png";
+import useStore from "@/stores/firstOnboardingStore";
+import FirstOnboarding from "@/pages/Introduction/FirstOnboarding";
 import useAuthStore from "@/stores/authStore";
 type FormInputs = {
   email: string;
@@ -50,11 +49,8 @@ export default function LoginAccount() {
       {!firstOnboardingComplited ? (
         <FirstOnboarding />
       ) : (
-        <div className=" relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
-          <div className="absolute top-4 right-0">
-            <LanguageSwitcher />
-          </div>
-          <div className="w-full m-auto lg:max-w-lg">
+        <div className="flex flex-col md:justify-center items-center min-h-screen overflow-hidden">
+          <div className="w-full mx-auto lg:max-w-lg">
             <div className="flex ">
               <img alt="logo" className="h-30 m-auto" src={logo} />
             </div>

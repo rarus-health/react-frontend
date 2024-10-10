@@ -11,8 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
-import { LanguageSwitcher } from "@/components/ui/language-switcher.tsx";
-import "../styles/modal.css"; // Import your custom styles
+import "@/styles/modal.css"; // Import your custom styles
 import axios from "axios";
 import useAuthStore from "@/stores/authStore.ts";
 
@@ -40,7 +39,6 @@ export default function AuthenticationPage() {
     );
     console.log("response:", response);
     if (response.status === 200) {
-
       setSuccess(true);
     }
     return response.data;
@@ -68,11 +66,8 @@ export default function AuthenticationPage() {
   const videoLink =
     "https://www.youtube.com/embed/JiUQ9pIUObQ?si=Dr3K3dZ_v8ANfN_P";
   return (
-    <div className=" relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
-      <div className="absolute top-4 right-0">
-        <LanguageSwitcher />
-      </div>
-      <div className="w-full m-auto lg:max-w-6xl md:flex md:gap-20">
+    <div className="flex md:justify-center flex-col items-center min-h-screen overflow-hidden">
+      <div className="w-full mx-auto lg:max-w-6xl md:flex md:gap-20">
         {success ? (
           <div className="flex w-[312px] text-center flex-col justify-center items-center min-h-screen overflow-hidden">
             <p className="text-green-600">
