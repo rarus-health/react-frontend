@@ -3,7 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-  font-family: Montserrat, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -75,4 +76,22 @@ button:focus-visible {
   :root {
     --radius: 0.5rem;
   }
+}
+
+.r-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 12px 0 8px 0;
+}
+.rdp [aria-hidden="true"] {
+  @apply hidden;
+}
+
+.rdp-vhidden {
+  @apply hidden;
+}
+
+select::-webkit-scrollbar {
+  display: none;
 }

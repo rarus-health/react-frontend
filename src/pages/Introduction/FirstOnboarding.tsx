@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import imageStep1 from "@/assets/onboarding/first-1.svg";
-import imageStep2 from "@/assets/onboarding/first-2.svg";
-import imageStep3 from "@/assets/onboarding/first-3.svg";
-import imageStep4 from "@/assets/onboarding/first-4.svg";
+import imageStep1 from "@/assets/introduction/first-1.svg";
+import imageStep2 from "@/assets/introduction/first-2.svg";
+import imageStep3 from "@/assets/introduction/first-3.svg";
+import imageStep4 from "@/assets/introduction/first-4.svg";
 import useStore from "@/stores/firstOnboardingStore";
 import { Link } from "react-router-dom";
 type Step = {

@@ -16,6 +16,8 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import PersonalDataIntro from "./pages/OnboardingForms/PersonalDataIntro";
 import HeaderUserAuth from "./components/layout/HeaderUserAuth";
+import MultistepForm from "./components/MultistepForm";
+import { NextUIProvider } from "@nextui-org/react";
 
 const router = createBrowserRouter([
   {
@@ -88,10 +90,24 @@ const router = createBrowserRouter([
       </div>
     ),
   },
+  {
+    path: "/onboarding/form",
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <div className="flex-grow">
+          <MultistepForm />
+        </div>
+        <Footer />
+      </div>
+    ),
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <NextUIProvider disableBaseline="true" locale="es-ES">
+      <RouterProvider router={router} />
+    </NextUIProvider>
   </StrictMode>
 );

@@ -29,6 +29,7 @@ export default function Root() {
             <Link to="/onboarding/personal-data-intro">
               /personal-data-intro
             </Link>
+            <Link to="/onboarding/form">/form</Link>
           </form>
         </div>
         <nav>
