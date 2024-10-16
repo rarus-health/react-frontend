@@ -62,24 +62,9 @@ const Step3: React.FC = () => {
               persona en cuestión.{" "}
             </label>
           </div>
-          {/* <div className="my-4 flex align-center items-center">
-          <div className="flex align-center justify-center">
-            <input
-              className="mr-8 h-4 w-4"
-              type="radio"
-              id="disagreeConsent"
-              name="disagreeConsent"
-              value="0"
-              checked={agreeConsent === "0"}
-              onChange={() => setAgreeConsent("0")}
-              required
-            />
-          </div>
-          <label htmlFor="disagreeConsent" className="text-sm flex-1">{labels.disagreeConsent}</label>
-        </div> */}
         </div>
         <Button
-          className="w-6 h-6 max-w-6 md:hidden"
+          className="w-6 h-6 max-w-6 hidden"
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -87,10 +72,6 @@ const Step3: React.FC = () => {
           <img src={playIcon} alt="play" className="w-6 h-6 max-w-6" />
         </Button>
       </div>
-      <Button className="md:hidden" variant="mobile">
-        Continuar
-      </Button>
-      <Button className="hidden md:block">Continuar</Button>
     </div>
   );
 };

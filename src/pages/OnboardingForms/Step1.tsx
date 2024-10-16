@@ -130,6 +130,13 @@ const Step1 = () => {
               </SelectContent>
             </Select>
           </div>
+          <div className="flex flex-col">
+            <label className="r-label" htmlFor="whatsapp">
+              Número de WhatsApp (es necesario para que nuestro asesor se
+              comunique con ti)
+            </label>
+            <Input className="r-input" id="whatsapp" type="text" />
+          </div>
         </div>
       </div>
     </div>

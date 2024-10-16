@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Step1 from "../pages/OnboardingForms/Step1";
 import Step2 from "../pages/OnboardingForms/Step2";
 import Step3 from "../pages/OnboardingForms/Step3";
+import { Button } from "./ui/button";
 
 function MultistepForm() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -81,80 +82,66 @@ function MultistepForm() {
         <hr className="my-4 w-full" />
         <div className="body">{PageDisplay()}</div>
         {currentStep === 0 && (
-          <div className="flex justify-center mt-[90px] mb-[49px]">
-            <div className="inline-flex">
-              <button
-                onClick={() => {
-                  setCurrentStep((currPage) => currPage + 1);
-                }}
-                className="bg-[#2738F5] text-[white] font-bold py-[7px] px-[8px] rounded-[8px] text-[10px] lg:text-[1.5rem]"
-              >
-                Continuar
-              </button>
-            </div>
+          <div className="flex justify-center mt-8 mb-[49px]">
+            <Button
+              className="md:hidden"
+              variant="mobile"
+              onClick={() => {
+                setCurrentStep((currPage) => currPage + 1);
+              }}
+            >
+              Continuar
+            </Button>
+            <Button
+              className="hidden md:block"
+              onClick={() => {
+                setCurrentStep((currPage) => currPage + 1);
+              }}
+            >
+              Continuar
+            </Button>
           </div>
         )}
         {currentStep == 1 && (
-          <div className="flex justify-center mt-[90px] mb-[49px]">
-            <button
-              className="text-[10px] bg-[white] text-[#2738F5] border-[1px] border-[#2738F5] font-bold py-[7px] px-4 rounded-l-xl mr-[0.31rem] lg:mr-[1.25rem] lg:text-[1.5rem]"
-              onClick={() => {
-                setCurrentStep((currPage) => currPage - 1);
-              }}
-            >
-              Atrás
-            </button>
-
-            <button
-              className="text-[10px] bg-[#2738F5] text-[white] font-bold py-[7px] px-4 rounded-r-xl lg:text-[1.5rem]"
+          <div className="flex justify-center mt-8 mb-[49px]">
+            <Button
+              className="md:hidden"
+              variant="mobile"
               onClick={() => {
                 setCurrentStep((currPage) => currPage + 1);
               }}
             >
               Continuar
-            </button>
+            </Button>
+            <Button
+              className="hidden md:block"
+              onClick={() => {
+                setCurrentStep((currPage) => currPage + 1);
+              }}
+            >
+              Continuar
+            </Button>
           </div>
         )}
         {currentStep == 2 && (
-          <div className="flex justify-center mt-[90px] mb-[49px]">
-            <button
-              className="text-[10px] bg-[white] text-[#2738F5] border-[1px] border-[#2738F5] font-bold py-[7px] px-4 rounded-l-xl mr-[0.31rem] lg:mr-[1.25rem] lg:text-[1.5rem]"
-              onClick={() => {
-                setCurrentStep((currPage) => currPage - 1);
-              }}
-            >
-              Atrás
-            </button>
-
-            <button
-              className="text-[10px] bg-[#2738F5] text-[white] font-bold py-[7px] px-4 rounded-r-xl lg:text-[1.5rem]"
+          <div className="flex justify-center mt-8 mb-[49px]">
+            <Button
+              className="md:hidden"
+              variant="mobile"
               onClick={() => {
                 setCurrentStep((currPage) => currPage + 1);
               }}
             >
-              Continuar
-            </button>
-          </div>
-        )}
-        {currentStep == 3 && (
-          <div className="flex justify-center mt-[90px] mb-[49px]">
-            <button
-              className="text-[10px] bg-[white] text-[#2738F5] border-[1px] border-[#2738F5] font-bold py-[7px] px-4 rounded-l-xl mr-[0.31rem] lg:mr-[1.25rem] lg:text-[1.5rem]"
-              onClick={() => {
-                setCurrentStep((currPage) => currPage - 1);
-              }}
-            >
-              Atrás
-            </button>
-
-            <button
-              className="text-[10px] bg-[#2738F5] text-[white] font-bold py-[7px] px-4 rounded-r-xl lg:text-[1.5rem]"
+              Guardar y continuar
+            </Button>
+            <Button
+              className="hidden md:block"
               onClick={() => {
                 setCurrentStep((currPage) => currPage + 1);
               }}
             >
-              Continuar
-            </button>
+              Guardar y continuar
+            </Button>
           </div>
         )}
       </div>
