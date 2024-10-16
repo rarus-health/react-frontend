@@ -13,7 +13,6 @@ import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/ui/password-input'
 import '@/styles/modal.css' // Import your custom styles
 import axios from 'axios'
-import useAuthStore from '@/stores/authStore.ts'
 
 type FormInputs = {
   email: string
