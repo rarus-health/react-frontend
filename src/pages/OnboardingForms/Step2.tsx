@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import countries from "@/locales/es.json";
-import { RadioGroup, Radio } from "@nextui-org/radio"; // путь к вашему es.json
-import { format } from "date-fns";
-import { es } from "date-fns/locale";
-import { DatePicker } from "@nextui-org/date-picker";
-import { Input } from "@/components/ui/input";
+import React, { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import countries from '@/locales/es.json'
+import { RadioGroup, Radio } from '@nextui-org/radio' // путь к вашему es.json
+import { format } from 'date-fns'
+import { es } from 'date-fns/locale'
+import { DatePicker } from '@nextui-org/date-picker'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
@@ -14,21 +14,21 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select'
 
 const Step2 = () => {
-  const [isTestsDone, setTestsDone] = useState(false);
+  const [isTestsDone, setTestsDone] = useState(false)
 
   const handleTestsDoneCheckboxChange = () => {
-    setTestsDone(!isTestsDone);
-  };
-  const [date, setDate] = React.useState<Date>();
+    setTestsDone(!isTestsDone)
+  }
+  const [date, setDate] = React.useState<Date>()
   const sortedCountries = Object.entries(countries.countries)
     .sort(([, a], [, b]) => (a > b ? 1 : -1))
-    .map(([country]) => country);
+    .map(([country]) => country)
   const formatDate = (date: Date | null) => {
-    return date ? format(date, "dd/MM/yyyy", { locale: es }) : "";
-  };
+    return date ? format(date, 'dd/MM/yyyy', { locale: es }) : ''
+  }
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto">
       <div className="personal">
@@ -85,7 +85,7 @@ const Step2 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Step2;
+export default Step2

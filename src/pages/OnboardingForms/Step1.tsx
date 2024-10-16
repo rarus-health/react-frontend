@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import countries from "@/locales/es.json"; // путь к вашему es.json
-import { format } from "date-fns";
-import { es } from "date-fns/locale";
-import { DatePicker } from "@nextui-org/date-picker";
-import { Input } from "@/components/ui/input";
+import React, { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import countries from '@/locales/es.json' // путь к вашему es.json
+import { format } from 'date-fns'
+import { es } from 'date-fns/locale'
+import { DatePicker } from '@nextui-org/date-picker'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
@@ -12,16 +12,16 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select'
 
 const Step1 = () => {
-  const [date, setDate] = React.useState<Date>();
+  const [date, setDate] = React.useState<Date>()
   const sortedCountries = Object.entries(countries.countries)
     .sort(([, a], [, b]) => (a > b ? 1 : -1))
-    .map(([country]) => country);
+    .map(([country]) => country)
   const formatDate = (date: Date | null) => {
-    return date ? format(date, "dd/MM/yyyy", { locale: es }) : "";
-  };
+    return date ? format(date, 'dd/MM/yyyy', { locale: es }) : ''
+  }
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto">
       <div className="personal">
@@ -140,7 +140,7 @@ const Step1 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Step1;
+export default Step1

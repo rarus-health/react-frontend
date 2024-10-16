@@ -1,30 +1,30 @@
-import { useState, useEffect } from "react";
-import Step1 from "../pages/OnboardingForms/Step1";
-import Step2 from "../pages/OnboardingForms/Step2";
-import Step3 from "../pages/OnboardingForms/Step3";
-import { Button } from "./ui/button";
+import { useState, useEffect } from 'react'
+import Step1 from '../pages/OnboardingForms/Step1'
+import Step2 from '../pages/OnboardingForms/Step2'
+import Step3 from '../pages/OnboardingForms/Step3'
+import { Button } from './ui/button'
 
 function MultistepForm() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0)
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    country: "",
-    region: "",
-    city: "",
-    phonecode: "",
-    phonenumber: "",
-    gender: "",
-    labor_state: "",
+    first_name: '',
+    last_name: '',
+    email: '',
+    country: '',
+    region: '',
+    city: '',
+    phonecode: '',
+    phonenumber: '',
+    gender: '',
+    labor_state: '',
     cargos: [],
-  });
+  })
 
   // const FormTitles = ["Sign Up", "Personal Info", "Other"];
 
   const PageDisplay = () => {
     if (currentStep === 0) {
-      return <Step1 formData={formData} setFormData={setFormData} />;
+      return <Step1 formData={formData} setFormData={setFormData} />
     } else if (currentStep === 1) {
       return (
         <Step2
@@ -32,7 +32,7 @@ function MultistepForm() {
           setFormData={setFormData}
           page={currentStep}
         />
-      );
+      )
     } else {
       return (
         <Step3
@@ -40,14 +40,14 @@ function MultistepForm() {
           setFormData={setFormData}
           page={currentStep}
         />
-      );
+      )
     }
-  };
+  }
 
   useEffect(() => {
     // Scroll to the top of the page whenever the page changes
-    window.scrollTo(0, 0);
-  }, [currentStep]);
+    window.scrollTo(0, 0)
+  }, [currentStep])
 
   return (
     <div className="form">
@@ -60,19 +60,19 @@ function MultistepForm() {
           <div className="z-10 flex gap-12">
             <button
               onClick={() => setCurrentStep(0)}
-              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 0 ? "bg-blue-600 text-white" : "bg-white text-blue-600"}`}
+              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 0 ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'}`}
             >
               1
             </button>
             <button
               onClick={() => setCurrentStep(1)}
-              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 1 ? "bg-blue-600 text-white" : "bg-white text-blue-600"}`}
+              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 1 ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'}`}
             >
               2
             </button>
             <button
               onClick={() => setCurrentStep(2)}
-              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 2 ? "bg-blue-600 text-white" : "bg-white text-blue-600"}`}
+              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 2 ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'}`}
             >
               3
             </button>
@@ -87,7 +87,7 @@ function MultistepForm() {
               className="md:hidden"
               variant="mobile"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Continuar
@@ -95,7 +95,7 @@ function MultistepForm() {
             <Button
               className="hidden md:block"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Continuar
@@ -108,7 +108,7 @@ function MultistepForm() {
               className="md:hidden"
               variant="mobile"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Continuar
@@ -116,7 +116,7 @@ function MultistepForm() {
             <Button
               className="hidden md:block"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Continuar
@@ -129,7 +129,7 @@ function MultistepForm() {
               className="md:hidden"
               variant="mobile"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Guardar y continuar
@@ -137,7 +137,7 @@ function MultistepForm() {
             <Button
               className="hidden md:block"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Guardar y continuar
@@ -146,7 +146,7 @@ function MultistepForm() {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default MultistepForm;
+export default MultistepForm

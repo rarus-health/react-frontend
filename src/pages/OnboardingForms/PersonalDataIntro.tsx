@@ -1,5 +1,5 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+import React from 'react'
+import { Button } from '@/components/ui/button'
 const PersonalDataIntro: React.FC = () => {
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto  mt-28">
@@ -26,7 +26,7 @@ const PersonalDataIntro: React.FC = () => {
       </Button>
       <Button className="hidden md:block">Continuar</Button>
     </div>
-  );
-};
+  )
+}
 
-export default PersonalDataIntro;
+export default PersonalDataIntro

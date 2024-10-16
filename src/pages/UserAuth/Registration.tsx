@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { PasswordInput } from "@/components/ui/password-input";
-import "@/styles/modal.css"; // Import your custom styles
-import axios from "axios";
-import useAuthStore from "@/stores/authStore.ts";
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { PasswordInput } from '@/components/ui/password-input'
+import '@/styles/modal.css' // Import your custom styles
+import axios from 'axios'
+import useAuthStore from '@/stores/authStore.ts'
 
 type FormInputs = {
-  email: string;
-  password: string;
-};
+  email: string
+  password: string
+}
 
 export default function AuthenticationPage() {
   const {
@@ -26,55 +26,55 @@ export default function AuthenticationPage() {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>({
-    mode: "onChange",
-  });
+    mode: 'onChange',
+  })
   const registerUser = async (data: {
-    email: string;
-    password: string;
-    confirmedPassword: string;
+    email: string
+    password: string
+    confirmedPassword: string
   }) => {
     const response = await axios.post(
-      "https://rarus-health-qa.uc.r.appspot.com/users",
+      'https://rarus-health-qa.uc.r.appspot.com/users',
       data
-    );
-    console.log("response:", response);
+    )
+    console.log('response:', response)
     if (response.status === 200) {
-      setSuccess(true);
+      setSuccess(true)
     }
-    return response.data;
-  };
-  const [success, setSuccess] = useState(false);
-  const [termsError, setTermsError] = useState(false);
+    return response.data
+  }
+  const [success, setSuccess] = useState(false)
+  const [termsError, setTermsError] = useState(false)
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    const { email, password } = data;
+    const { email, password } = data
     if (termsAccepted && policyAccepted) {
-      setTermsError(false);
+      setTermsError(false)
       registerUser({
         email: email,
         password: password,
         confirmedPassword: password,
         //12345aA!a
-      });
+      })
     } else {
-      setTermsError(true);
+      setTermsError(true)
     }
-  };
+  }
 
-  const [policyAccepted, setPolicyAccepted] = useState(false);
-  const [termsAccepted, setTermsAccepted] = useState(false);
-  const handleRegistration = () => {};
+  const [policyAccepted, setPolicyAccepted] = useState(false)
+  const [termsAccepted, setTermsAccepted] = useState(false)
+  const handleRegistration = () => {}
   const videoLink =
-    "https://www.youtube.com/embed/JiUQ9pIUObQ?si=Dr3K3dZ_v8ANfN_P";
+    'https://www.youtube.com/embed/JiUQ9pIUObQ?si=Dr3K3dZ_v8ANfN_P'
   return (
     <div className="flex md:justify-center flex-col items-center min-h-screen overflow-hidden">
       <div className="w-full mx-auto lg:max-w-6xl md:flex md:gap-20">
         {success ? (
           <div className="flex w-[312px] text-center flex-col justify-center items-center min-h-screen overflow-hidden">
             <p className="text-green-600">
-              {" "}
+              {' '}
               Se ha enviado un correo electrónico a la dirección de correo
               electrónico que proporcionó. Haga clic en el enlace para confirmar
-              el registro de su cuenta.{" "}
+              el registro de su cuenta.{' '}
             </p>
             <div className="mt-4 text-sm text-center ">
               <Link to="/login" className="text-[#77858C] ">
@@ -91,7 +91,7 @@ export default function AuthenticationPage() {
                   className="w-full h-full video-desktop p-4"
                   title="Video"
                 />
-              </div>{" "}
+              </div>{' '}
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -107,49 +107,49 @@ export default function AuthenticationPage() {
                       id="email"
                       type="email"
                       placeholder="Email"
-                      {...register("email", {
-                        required: "Email is required",
+                      {...register('email', {
+                        required: 'Email is required',
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: "Invalid email address",
+                          message: 'Invalid email address',
                         },
                       })}
                     />
                     {errors.email && (
                       <span className="text-red-500">
-                        {errors.email.message || "Error"}
+                        {errors.email.message || 'Error'}
                       </span>
-                    )}{" "}
+                    )}{' '}
                   </div>
                   <div className="grid gap-2">
                     <PasswordInput
                       id="current_password"
                       autoComplete="current-password"
                       required
-                      {...register("password", {
-                        required: "Password is required",
+                      {...register('password', {
+                        required: 'Password is required',
                         minLength: {
                           value: 8,
-                          message: "Password must be at least 8 characters",
+                          message: 'Password must be at least 8 characters',
                         },
                         validate: {
                           uppercase: (value) =>
                             /[A-Z]/.test(value) ||
-                            "Password must contain at least one uppercase letter",
+                            'Password must contain at least one uppercase letter',
                           lowercase: (value) =>
                             /[a-z]/.test(value) ||
-                            "Password must contain at least one lowercase letter",
+                            'Password must contain at least one lowercase letter',
                           symbol: (value) =>
                             /[^A-Za-z0-9]/.test(value) ||
-                            "Password must contain at least one special character",
+                            'Password must contain at least one special character',
                         },
                       })}
-                    />{" "}
+                    />{' '}
                     {errors.password && (
                       <span className="text-red-500">
-                        {errors.password.message || "Error"}
+                        {errors.password.message || 'Error'}
                       </span>
-                    )}{" "}
+                    )}{' '}
                   </div>
                   <div>
                     <div className="text-left mt-4 flex items-center">
@@ -162,7 +162,7 @@ export default function AuthenticationPage() {
                         onChange={() => setPolicyAccepted((prev) => !prev)}
                       />
                       <label htmlFor="agree">
-                        He leído y acepto{" "}
+                        He leído y acepto{' '}
                         <a
                           href="https://s3.rarus.health/rarus/Politicas_de_Privacidad_Rarus_Health.pdf"
                           target="_blank"
@@ -183,7 +183,7 @@ export default function AuthenticationPage() {
                         onChange={() => setTermsAccepted((prev) => !prev)}
                       />
                       <label htmlFor="agree2">
-                        He leído y acepto{" "}
+                        He leído y acepto{' '}
                         <a
                           href="https://s3.rarus.health/rarus/Condiciones-de-servicio.pdf"
                           target="_blank"
@@ -200,7 +200,7 @@ export default function AuthenticationPage() {
                   <span className="text-red-500">
                     You must accept terms and policy before registering.
                   </span>
-                )}{" "}
+                )}{' '}
                 <CardFooter className="flex flex-col">
                   <Button
                     className="w-full"
@@ -231,5 +231,5 @@ export default function AuthenticationPage() {
         )}
       </div>
     </div>
-  );
+  )
 }

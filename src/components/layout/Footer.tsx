@@ -1,8 +1,8 @@
-import React from "react";
-import instagram from "@/assets/footer/instagram.svg";
-import facebook from "@/assets/footer/facebook.svg";
-import linkedin from "@/assets/footer/linkedin.svg";
-import mail from "@/assets/footer/mail.svg";
+import React from 'react'
+import instagram from '@/assets/footer/instagram.svg'
+import facebook from '@/assets/footer/facebook.svg'
+import linkedin from '@/assets/footer/linkedin.svg'
+import mail from '@/assets/footer/mail.svg'
 
 const DoctorFooter: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const DoctorFooter: React.FC = () => {
         <img src={mail} alt="Mail" className="w-8 h-8" />
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default DoctorFooter;
+export default DoctorFooter

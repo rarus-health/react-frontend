@@ -1,18 +1,18 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import { registerUser, loginUser } from "../api/auth"; // Импорт сервиса
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+import { registerUser, loginUser } from '../api/auth' // Импорт сервиса
 
 interface AuthStore {
-  token: string | null;
-  isLoggedIn: boolean;
+  token: string | null
+  isLoggedIn: boolean
   register: (
     email: string,
     password: string,
     confirmedPassword: string
-  ) => Promise<void>;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-  setToken: (token: string) => void;
+  ) => Promise<void>
+  login: (email: string, password: string) => Promise<void>
+  logout: () => void
+  setToken: (token: string) => void
 }
 
 const useAuthStore = create(
@@ -21,8 +21,8 @@ const useAuthStore = create(
       token: null,
       isLoggedIn: false,
       setToken: (token: string) => {
-        set({ token, isLoggedIn: true });
-        localStorage.setItem("accessToken", token); // Сохраняем токен в localStorage
+        set({ token, isLoggedIn: true })
+        localStorage.setItem('accessToken', token) // Сохраняем токен в localStorage
       },
       register: async (
         email: string,
@@ -34,35 +34,35 @@ const useAuthStore = create(
             email,
             password,
             confirmedPassword
-          );
+          )
           if (token) {
-            localStorage.setItem("accessToken", token);
-            set({ token, isLoggedIn: true });
+            localStorage.setItem('accessToken', token)
+            set({ token, isLoggedIn: true })
           }
         } catch (error) {
-          console.error("Ошибка регистрации:", error);
+          console.error('Ошибка регистрации:', error)
         }
       },
       login: async (email: string, password: string) => {
         try {
-          const { token } = await loginUser(email, password);
+          const { token } = await loginUser(email, password)
           if (token) {
-            localStorage.setItem("accessToken", token);
-            set({ token, isLoggedIn: true });
+            localStorage.setItem('accessToken', token)
+            set({ token, isLoggedIn: true })
           }
         } catch (error) {
-          console.error("Ошибка логина:", error);
+          console.error('Ошибка логина:', error)
         }
       },
       logout: () => {
-        set({ token: null, isLoggedIn: false });
-        localStorage.removeItem("accessToken");
+        set({ token: null, isLoggedIn: false })
+        localStorage.removeItem('accessToken')
       },
     }),
     {
-      name: "authStore",
+      name: 'authStore',
     }
   )
-);
+)
 
-export default useAuthStore;
+export default useAuthStore

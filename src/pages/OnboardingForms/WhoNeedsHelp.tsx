@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import woman from "@/assets/second-onboarding/women.svg";
-import children from "@/assets/second-onboarding/children.svg";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import woman from '@/assets/second-onboarding/women.svg'
+import children from '@/assets/second-onboarding/children.svg'
 const WhoNeedsHelp: React.FC = () => {
   return (
     <>
       <div className="flex-grow w-full flex flex-col justify-normal items-center  bg-white">
         <h1 className="mt-28 md:mt-14 mb-10 font-montserrat font-medium text-[24px] leading-[150%] flex items-center text-[#072FAA]">
-          ¿Quién necesita ayuda?{" "}
+          ¿Quién necesita ayuda?{' '}
         </h1>
         <div className="gap-4 hidden md:flex">
           <div className="bg-[#E8EBF6] rounded-[32px] flex flex-col items-center relative">
@@ -37,7 +37,7 @@ const WhoNeedsHelp: React.FC = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default WhoNeedsHelp;
+export default WhoNeedsHelp
