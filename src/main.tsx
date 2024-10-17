@@ -18,7 +18,7 @@ import PersonalDataIntro from './pages/OnboardingForms/PersonalDataIntro'
 import HeaderUserAuth from './components/layout/HeaderUserAuth'
 import MultistepForm from './components/MultistepForm'
 import { NextUIProvider } from '@nextui-org/react'
-import { healthProfessionalRoutes } from './routes/healthProfessional'
+import { healthProfessionalRoutes } from './routes/healthProfessionalRoutes'
 
 const router = createBrowserRouter([
   {

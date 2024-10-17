@@ -1,6 +1,7 @@
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import Introduction from '@/pages/HealthProfessional/Introducction'
+import Registration from '@/pages/HealthProfessional/Registration'
 
 export const healthProfessionalRoutes = [
   {
@@ -25,11 +26,7 @@ export const healthProfessionalRoutes = [
   },
   {
     path: '/health-professional/registration',
-    element: (
-      <div className="w-full h-full flex flex-col max-w-7xl mx-auto">
-        <main className="flex-grow">REGISTRATION</main>
-      </div>
-    ),
+    element: <Registration />,
   },
   {
     path: '/health-professional/onboarding',
