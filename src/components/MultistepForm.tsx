@@ -1,36 +1,55 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Step1 from "../pages/OnboardingForms/Step1";
 import Step2 from "../pages/OnboardingForms/Step2";
 import Step3 from "../pages/OnboardingForms/Step3";
 import { Button } from "./ui/button";
+import { useLocation } from "react-router-dom";
 
 function MultistepForm() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    country: "",
-    region: "",
-    city: "",
-    phonecode: "",
-    phonenumber: "",
-    gender: "",
-    labor_state: "",
-    cargos: [],
+    medicalInstitution: "",
+    geneticTest: undefined, // начальное значение "не выбрано"
+    diagnosis: undefined, // начальное значение "не выбрано"
+    epilepsy: undefined, // начальное значение "не выбрано"
   });
 
   // const FormTitles = ["Sign Up", "Personal Info", "Other"];
+  const savedData = useRef([]);
 
+  const storeData = (data: any) => {
+    // Save or rewrite data on this page
+    savedData.current[currentStep] = data;
+  };
+  const handleNext = (data: any) => {
+    storeData(data);
+    setCurrentStep(currentStep + 1);
+  };
+
+  const handleSubmit = (data: any) => {
+    storeData(data);
+    onSubmit(savedData.current); // handle your form submit
+  };
   const PageDisplay = () => {
     if (currentStep === 0) {
-      return <Step1 formData={formData} setFormData={setFormData} />;
+      return (
+        <Step1
+          formData={formData}
+          adult={adult}
+          setFormData={setFormData}
+          onNext={handleNext}
+          defaultValues={savedData[0]}
+        />
+      );
     } else if (currentStep === 1) {
       return (
         <Step2
           formData={formData}
           setFormData={setFormData}
           page={currentStep}
+          adult={adult}
+          onNext={handleNext}
+          defaultValues={savedData[1]}
         />
       );
     } else {
@@ -39,6 +58,9 @@ function MultistepForm() {
           formData={formData}
           setFormData={setFormData}
           page={currentStep}
+          adult={adult}
+          onSubmit={handleSubmit}
+          defaultValues={savedData[2]}
         />
       );
     }
@@ -48,7 +70,8 @@ function MultistepForm() {
     // Scroll to the top of the page whenever the page changes
     window.scrollTo(0, 0);
   }, [currentStep]);
-
+  const location = useLocation();
+  const { adult } = location.state || {};
   return (
     <div className="form">
       <div className="form-container bg-white p-2 rounded-2xl mx-4 md:mx-25 my-2 md:my-5 md:min-w-[620px]">
@@ -105,16 +128,16 @@ function MultistepForm() {
         {currentStep == 1 && (
           <div className="flex justify-center mt-8 mb-[49px]">
             <Button
-              className="md:hidden"
-              variant="mobile"
+              className="text-[10px] bg-[white] text-[#2738F5] border-[1px] border-[#2738F5] font-bold py-[7px] px-4 rounded-l-xl mr-[0.31rem] lg:mr-[1.25rem] lg:text-[1.5rem]"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage - 1);
               }}
             >
-              Continuar
+              Atrás
             </Button>
+
             <Button
-              className="hidden md:block"
+              className="text-[10px] bg-[#2738F5] text-[white] font-bold py-[7px] px-4 rounded-r-xl lg:text-[1.5rem]"
               onClick={() => {
                 setCurrentStep((currPage) => currPage + 1);
               }}

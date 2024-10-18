@@ -1,9 +1,16 @@
+// Step3.tsx
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useFormContext } from "react-hook-form";
+import { FormData } from "../../stores/types";
 import playIcon from "@/assets/forms/play-icon.svg";
+import { Button } from "@/components/ui/button";
 
 const Step3: React.FC = () => {
-  const [agreeConsent, setAgreeConsent] = useState<boolean>(false);
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<FormData>();
+
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto ">
       <div className="flex justify-between gap-2 flex-col">
@@ -16,20 +23,6 @@ const Step3: React.FC = () => {
             Una vez hecho esto, formarás parte de nuestro banco de datos Rarus y
             disfrutarás de todas las ventajas de nuestra plataforma
           </h3>
-          {/* <ul className="ml-8 list-disc">
-          <li className="text-xs text-grey-400">
-            {labels.joinDataBankBullet1}
-          </li>
-          <li className="text-xs text-grey-400">
-            {labels.joinDataBankBullet2}
-          </li>
-          <li className="text-xs text-grey-400">
-            {labels.joinDataBankBullet3}
-          </li>
-          <li className="text-xs text-grey-400">
-            {labels.joinDataBankBullet4}
-          </li>
-        </ul> */}
           <a
             className="block my-4 underline text-bold text-sm"
             target="_blank"
@@ -44,13 +37,14 @@ const Step3: React.FC = () => {
               <input
                 className="mr-8 h-4 w-4"
                 type="radio"
-                id="agreeConsent"
-                name="agreeConsent"
-                value="1"
-                checked={agreeConsent}
-                onChange={() => setAgreeConsent(true)}
-                required
+                value="false"
+                {...register("agreeConsent", {
+                  required: "Consent is required",
+                })}
               />
+              {errors.agreeConsent && (
+                <p className="text-red-500">{errors.agreeConsent.message}</p>
+              )}
             </div>
             <label
               htmlFor="agreeConsent"

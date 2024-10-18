@@ -1,6 +1,10 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 const PersonalDataIntro: React.FC = () => {
+  const location = useLocation();
+  const { adult } = location.state || {};
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto  mt-28">
       <div className="mb-24">
@@ -21,10 +25,14 @@ const PersonalDataIntro: React.FC = () => {
           </p>
         </div>
       </div>
-      <Button className="md:hidden" variant="mobile">
-        Continuar
-      </Button>
-      <Button className="hidden md:block">Continuar</Button>
+      <Link to="/onboarding/form" state={{ adult }}>
+        <Button className="md:hidden" variant="mobile">
+          Continuar
+        </Button>
+      </Link>
+      <Link to="/onboarding/form" state={{ adult }}>
+        <Button className="hidden md:block">Continuar</Button>
+      </Link>
     </div>
   );
 };

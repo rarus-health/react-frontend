@@ -16,7 +16,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import PersonalDataIntro from "./pages/OnboardingForms/PersonalDataIntro";
 import HeaderUserAuth from "./components/layout/HeaderUserAuth";
-import MultistepForm from "./components/MultistepForm";
+import MultistepForm from "./pages/OnboardingForms/MultistepForm";
 import { NextUIProvider } from "@nextui-org/react";
 
 const router = createBrowserRouter([
