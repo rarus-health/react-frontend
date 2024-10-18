@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Title from '@/components/ui/Title'
 import Text from '@/components/ui/Text'
 
-import { introducionSteps } from './utils/Introduction/introductionSteps'
+import { introducionSteps } from './utils/introductionSteps'
 
 export default function Introduction() {
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ export default function Introduction() {
       setCurrentStep(currentStep + 1)
       return
     }
-    if (currentStep >= 1) navigate('/health-professional/registration')
+    if (currentStep >= 1) navigate('/health-professional/login')
   }
 
   return (

@@ -15,8 +15,9 @@ import '@/styles/modal.css' // Import your custom styles
 
 import RarusHealthLogoImg from '@/assets/rarus-logo-vertical.png'
 import SpanError from '@/components/ui/SpanError'
-import { RegistrationFormInputs } from './utils/Registration/types/registrationFormInputs'
-import { useRegistration } from './utils/Registration/useRegistration'
+
+import { useRegistration } from './utils/useRegistration'
+import { RegistrationFormInputs } from './utils/types/RegistrationFormInputs'
 
 export default function Registration() {
   const navigate = useNavigate()
@@ -29,13 +30,13 @@ export default function Registration() {
     mode: 'onChange',
   })
 
+  const { registerUser, isRegistering, registerError, token } =
+    useRegistration()
+
   const [policyAccepted, setPolicyAccepted] = useState(false)
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [showErrors, setShowErrors] = useState(false)
   const [termsError, setTermsError] = useState(false)
-
-  const { registerUser, isRegistering, registerError, token } =
-    useRegistration()
 
   const handleRegistration: SubmitHandler<RegistrationFormInputs> = ({
     email,
@@ -44,8 +45,8 @@ export default function Registration() {
     const formError = errors.email || errors.password
     if (!formError && !termsError) {
       registerUser({
-        email: email,
-        password: password,
+        email,
+        password,
       })
     }
   }
@@ -98,7 +99,7 @@ export default function Registration() {
                 />
                 {showErrors && errors.email && (
                   <SpanError text={errors.email.message || 'Error'} />
-                )}{' '}
+                )}
               </div>
               <div className="grid gap-2">
                 <PasswordInput
@@ -144,7 +145,7 @@ export default function Registration() {
                     onChange={() => setPolicyAccepted((prev) => !prev)}
                   />
                   <label htmlFor="agree">
-                    He leído y acepto{' '}
+                    He leído y acepto
                     <a
                       href="https://s3.rarus.health/rarus/Politicas_de_Privacidad_Rarus_Health.pdf"
                       target="_blank"
@@ -165,7 +166,7 @@ export default function Registration() {
                     onChange={() => setTermsAccepted((prev) => !prev)}
                   />
                   <label htmlFor="agree2">
-                    He leído y acepto{' '}
+                    He leído y acepto
                     <a
                       href="https://s3.rarus.health/rarus/Condiciones-de-servicio.pdf"
                       target="_blank"

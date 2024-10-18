@@ -1,28 +1,15 @@
-import Footer from '@/components/layout/Footer'
-import Header from '@/components/layout/Header'
-import Introduction from '@/pages/HealthProfessional/Introducction'
-import Registration from '@/pages/HealthProfessional/Registration'
+import Introduction from '@/pages/HealthProfessional/Introduction/Introducction'
+import Login from '@/pages/HealthProfessional/Login/Login'
+import Registration from '@/pages/HealthProfessional/Registration/Registration'
 
 export const healthProfessionalRoutes = [
   {
     path: '/health-professional/introduction',
-    element: (
-      <div className="w-full h-full flex flex-col max-w-7xl mx-auto">
-        <Introduction />
-      </div>
-    ),
+    element: <Introduction />,
   },
   {
     path: '/health-professional/login',
-    element: (
-      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
-        <Header />
-        <div className="flex-grow">
-          <main className="flex-grow">LOGIN</main>
-        </div>
-        <Footer />
-      </div>
-    ),
+    element: <Login />,
   },
   {
     path: '/health-professional/registration',
