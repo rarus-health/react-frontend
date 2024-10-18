@@ -16,8 +16,9 @@ import '@/styles/modal.css' // Import your custom styles
 import RarusHealthLogoImg from '@/assets/rarus-logo-vertical.png'
 import SpanError from '@/components/ui/SpanError'
 
-import { LoginFormInputs } from './utils/loginFormInputs'
+import { LoginFormInputs } from './utils/types/loginFormInputs'
 import { useLogin } from './utils/useLogin'
+import { useToken } from '../utils/useToken'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -31,6 +32,7 @@ export default function Login() {
   })
 
   const { login, isLogging, loginError, token } = useLogin()
+  const { redirectIfUserIsLoggedIn, setToken } = useToken()
 
   const [showErrors, setShowErrors] = useState(false)
 
@@ -45,7 +47,12 @@ export default function Login() {
   }
 
   useEffect(() => {
+    redirectIfUserIsLoggedIn()
+  }, [])
+
+  useEffect(() => {
     if (token) {
+      setToken(token)
       navigate('/health-professional/onboarding')
       return
     }

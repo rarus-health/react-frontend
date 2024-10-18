@@ -18,6 +18,7 @@ import SpanError from '@/components/ui/SpanError'
 
 import { useRegistration } from './utils/useRegistration'
 import { RegistrationFormInputs } from './utils/types/RegistrationFormInputs'
+import { useToken } from '../utils/useToken'
 
 export default function Registration() {
   const navigate = useNavigate()
@@ -32,6 +33,7 @@ export default function Registration() {
 
   const { registerUser, isRegistering, registerError, token } =
     useRegistration()
+  const { redirectIfUserIsLoggedIn, setToken } = useToken()
 
   const [policyAccepted, setPolicyAccepted] = useState(false)
   const [termsAccepted, setTermsAccepted] = useState(false)
@@ -61,10 +63,15 @@ export default function Registration() {
 
   useEffect(() => {
     if (token) {
+      setToken(token)
       navigate('/health-professional/onboarding')
       return
     }
   }, [token])
+
+  useEffect(() => {
+    redirectIfUserIsLoggedIn()
+  }, [])
 
   return (
     <div className="flex md:justify-center flex-col items-center min-h-screen overflow-hidden">
@@ -198,7 +205,10 @@ export default function Registration() {
               </Button>
               {!Boolean(isRegistering || token) && (
                 <div className="mt-4 text-sm text-center ">
-                  <Link to="/login" className="text-[#77858C] ">
+                  <Link
+                    to="/health-professional/login"
+                    className="text-[#77858C] "
+                  >
                     <p className=" mt-4 hover:underline">Ingresar</p>
                   </Link>
                 </div>

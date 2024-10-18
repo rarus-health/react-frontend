@@ -1,13 +1,16 @@
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Title from '@/components/ui/Title'
 import Text from '@/components/ui/Text'
 
 import { introducionSteps } from './utils/introductionSteps'
+import { useToken } from '../utils/useToken'
 
 export default function Introduction() {
   const navigate = useNavigate()
+  const { redirectIfUserIsLoggedIn } = useToken()
+
   const [currentStep, setCurrentStep] = useState(0)
   const stepData = introducionSteps[currentStep]
 
@@ -18,6 +21,10 @@ export default function Introduction() {
     }
     if (currentStep >= 1) navigate('/health-professional/login')
   }
+
+  useEffect(() => {
+    redirectIfUserIsLoggedIn()
+  }, [])
 
   return (
     <div className="flex h-screen items-center borde">

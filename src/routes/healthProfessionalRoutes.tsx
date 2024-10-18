@@ -19,7 +19,7 @@ export const healthProfessionalRoutes = [
     path: '/health-professional/onboarding',
     element: (
       <div className="w-full h-full flex flex-col max-w-7xl mx-auto">
-        <main className="flex-grow">REGISTRATION</main>
+        <main className="flex-grow">ONBOARDING</main>
       </div>
     ),
   },
