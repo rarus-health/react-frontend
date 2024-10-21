@@ -1,9 +1,9 @@
-import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import { FormData } from "../../stores/types";
-import countries from "@/locales/es.json"; // путь к вашему es.json
-import { DatePicker } from "@nextui-org/date-picker";
-import { Input } from "@/components/ui/input";
+import React from 'react'
+import { Controller, useFormContext } from 'react-hook-form'
+import { FormData } from '../../stores/types'
+import countries from '@/locales/es.json' // путь к вашему es.json
+import { DatePicker } from '@nextui-org/date-picker'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
@@ -12,11 +12,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { parseDate } from '@internationalized/date' // Импортируем parseDate
 
 interface Step1Props {
-  formData: any;
-  adult: boolean;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  formData: any
+  adult: boolean
+  setFormData: React.Dispatch<React.SetStateAction<any>>
 }
 
 const Step1: React.FC<Step1Props> = ({ adult }) => {
@@ -24,11 +25,11 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
     register,
     control,
     formState: { errors },
-  } = useFormContext<FormData>();
+  } = useFormContext<FormData>()
 
   const sortedCountries = Object.entries(countries.countries)
     .sort(([, a], [, b]) => (a > b ? 1 : -1))
-    .map(([country]) => country);
+    .map(([country]) => country)
 
   return (
     /*     <div>
@@ -55,8 +56,8 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
       <div>
         <h3 className="font-semibold text-sm leading-5">
           {adult
-            ? "Complete información sobre usted"
-            : "Complete información sobre su hijo"}
+            ? 'Complete información sobre usted'
+            : 'Complete información sobre su hijo'}
         </h3>
         <div className="name flex-col">
           <div className="flex flex-col">
@@ -64,7 +65,7 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               Apellido
             </label>
             <Input
-              {...register("surname", { required: "surname is required" })}
+              {...register('surname', { required: 'surname is required' })}
             />
             {errors.surname && <span>{errors.surname.message}</span>}
           </div>
@@ -74,7 +75,7 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
             </label>
             <Input
               className="r-input"
-              {...register("name", { required: "name is required" })}
+              {...register('name', { required: 'name is required' })}
             />
             {errors.name && <span>{errors.name.message}</span>}
           </div>
@@ -86,8 +87,9 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
             </label>
             <Controller
               name="citizenship"
+              control={control}
               render={({ field }) => (
-                <Select {...field}>
+                <Select {...field} onValueChange={field.onChange}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue />
                   </SelectTrigger>
@@ -110,8 +112,9 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
             </label>
             <Controller
               name="gender"
+              control={control}
               render={({ field }) => (
-                <Select {...field}>
+                <Select {...field} onValueChange={field.onChange}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue />
                   </SelectTrigger>
@@ -130,19 +133,28 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
             <label className="r-label" htmlFor="dateOfBirth">
               Fecha de nacimiento
             </label>
-            <div className="w-full max-w-xl flex flex-row gap-4 ">
+
+            <div className="w-full max-w-[284px] flex flex-row gap-4 ">
               <Controller
                 name="dateOfBirth"
                 control={control}
                 render={({ field }) => (
                   <DatePicker
+                    hideTimeZone
                     variant="bordered"
                     showMonthAndYearPickers
-                    value={field.value}
-                    onChange={(date) => field.onChange(date)}
+                    value={field.value ? field.value : null} // Убедитесь, что значение корректно передается
+                    onChange={(date) => {
+                      console.log(date) // Логируем значение даты для проверки формата
+                      if (date) {
+                        field.onChange(date) // Преобразуем дату и устанавливаем
+                      } else {
+                        field.onChange(null) // Если нет даты, устанавливаем null
+                      }
+                    }}
                   />
                 )}
-              />{" "}
+              />
             </div>
           </div>
           <div className="flex flex-col">
@@ -151,8 +163,9 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
             </label>
             <Controller
               name="placeOfResidence"
+              control={control}
               render={({ field }) => (
-                <Select {...field}>
+                <Select {...field} onValueChange={field.onChange}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue />
                   </SelectTrigger>
@@ -177,7 +190,7 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               </label>
               <Input
                 className="r-input"
-                {...register("whatsapp", { required: "whatsapp is required" })}
+                {...register('whatsapp', { required: 'whatsapp is required' })}
               />
               {errors.whatsapp && <span>{errors.whatsapp.message}</span>}
             </div>
@@ -196,8 +209,8 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               </label>
               <Input
                 className="r-input"
-                {...register("representativeSurname", {
-                  required: "surname is required",
+                {...register('representativeSurname', {
+                  required: 'surname is required',
                 })}
               />
               {errors.surname && <span>{errors.surname.message}</span>}
@@ -208,8 +221,8 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               </label>
               <Input
                 className="r-input"
-                {...register("representativeName", {
-                  required: "name is required",
+                {...register('representativeName', {
+                  required: 'name is required',
                 })}
               />
               {errors.name && <span>{errors.name.message}</span>}
@@ -222,8 +235,9 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               </label>
               <Controller
                 name="representativeCitizenship"
+                control={control}
                 render={({ field }) => (
-                  <Select {...field}>
+                  <Select {...field} onValueChange={field.onChange}>
                     <SelectTrigger className="w-[180px]">
                       <SelectValue />
                     </SelectTrigger>
@@ -246,8 +260,9 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               </label>
               <Controller
                 name="representativeGender"
+                control={control}
                 render={({ field }) => (
-                  <Select {...field}>
+                  <Select {...field} onValueChange={field.onChange}>
                     <SelectTrigger className="w-[180px]">
                       <SelectValue />
                     </SelectTrigger>
@@ -272,10 +287,18 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
                   control={control}
                   render={({ field }) => (
                     <DatePicker
+                      hideTimeZone
                       variant="bordered"
                       showMonthAndYearPickers
-                      value={field.value}
-                      onChange={(date) => field.onChange(date)}
+                      value={field.value ? field.value : null} // Убедитесь, что значение корректно передается
+                      onChange={(date) => {
+                        console.log(date) // Логируем значение даты для проверки формата
+                        if (date) {
+                          field.onChange(date) // Преобразуем дату и устанавливаем
+                        } else {
+                          field.onChange(null) // Если нет даты, устанавливаем null
+                        }
+                      }}
                     />
                   )}
                 />
@@ -290,8 +313,9 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               </label>
               <Controller
                 name="representativePlaceOfResidence"
+                control={control}
                 render={({ field }) => (
-                  <Select {...field}>
+                  <Select {...field} onValueChange={field.onChange}>
                     <SelectTrigger className="w-[180px]">
                       <SelectValue />
                     </SelectTrigger>
@@ -315,7 +339,7 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
               </label>
               <Input
                 className="r-input"
-                {...register("whatsapp", { required: "whatsapp is required" })}
+                {...register('whatsapp', { required: 'whatsapp is required' })}
               />
               {errors.whatsapp && <span>{errors.whatsapp.message}</span>}
             </div>
