@@ -1,10 +1,10 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import logo from "@/assets/rarus-logo-horizontal.svg";
-import { LanguageSwitcher } from "../ui/language-switcher";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import logo from '@/assets/rarus-logo-horizontal.svg'
+import { LanguageSwitcher } from '../ui/language-switcher'
 
 const Header: React.FC = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <header className="px-10 md:px-36 relative z-10 flex justify-between items-center bg-white ">
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         <img
           alt="logo"
           src={logo}
-          onClick={() => navigate("/")}
+          onClick={() => navigate('/')}
           className="cursor-pointer h-14 my-7"
         />
         <div className="hidden md:block"></div>
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         <LanguageSwitcher />
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

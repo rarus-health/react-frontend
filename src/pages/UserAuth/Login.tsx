@@ -1,47 +1,47 @@
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { PasswordInput } from "@/components/ui/password-input";
-import logo from "@/assets/rarus-logo-vertical.png";
-import useStore from "@/stores/firstOnboardingStore";
-import FirstOnboarding from "@/pages/Introduction/FirstOnboarding";
-import useAuthStore from "@/stores/authStore";
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { PasswordInput } from '@/components/ui/password-input'
+import logo from '@/assets/rarus-logo-vertical.png'
+import useStore from '@/stores/firstOnboardingStore'
+import FirstOnboarding from '@/pages/Introduction/FirstOnboarding'
+import useAuthStore from '@/stores/authStore'
 type FormInputs = {
-  email: string;
-  password: string;
-};
+  email: string
+  password: string
+}
 export default function LoginAccount() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>({
-    mode: "onChange",
-  });
-  const { firstOnboardingComplited } = useStore();
-  const { login, isLoggedIn } = useAuthStore();
-  const navigate = useNavigate();
+    mode: 'onChange',
+  })
+  const { firstOnboardingComplited } = useStore()
+  const { login, isLoggedIn } = useAuthStore()
+  const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    const { email, password } = data;
-    login(email, password);
-    navigate("/");
-    console.log("logged in");
+    const { email, password } = data
+    login(email, password)
+    navigate('/')
+    console.log('logged in')
     if (isLoggedIn) {
-      console.log("logged in");
-      navigate("/"); // Навигация только при успешном логине
+      console.log('logged in')
+      navigate('/') // Навигация только при успешном логине
     } else {
-      console.log("Неверный email или пароль."); // Обработка ошибки
+      console.log('Неверный email или пароль.') // Обработка ошибки
     }
-  };
+  }
 
   //12345aA!a
   return (
@@ -66,29 +66,29 @@ export default function LoginAccount() {
                       type="email"
                       required
                       placeholder="Email"
-                      {...register("email", {
-                        required: "Email is required",
+                      {...register('email', {
+                        required: 'Email is required',
                       })}
                     />
                     {errors.email && (
                       <span className="text-red-500">
-                        {errors.email.message || "Error"}
+                        {errors.email.message || 'Error'}
                       </span>
-                    )}{" "}
+                    )}{' '}
                   </div>
                   <div className="grid gap-2">
                     <PasswordInput
                       id="current_password"
                       autoComplete="current-password"
-                      {...register("password", {
-                        required: "Password is required",
+                      {...register('password', {
+                        required: 'Password is required',
                       })}
                     />
                     {errors.password && (
                       <span className="text-red-500">
-                        {errors.password.message || "Error"}
+                        {errors.password.message || 'Error'}
                       </span>
-                    )}{" "}
+                    )}{' '}
                   </div>
                 </CardContent>
                 <CardFooter className="flex flex-col">
@@ -113,5 +113,5 @@ export default function LoginAccount() {
         </div>
       )}
     </>
-  );
+  )
 }

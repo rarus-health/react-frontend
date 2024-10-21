@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import useAuthStore from "@/stores/authStore";
+import { Link } from 'react-router-dom'
+import useAuthStore from '@/stores/authStore'
 export default function Root() {
-  const { logout, isLoggedIn } = useAuthStore();
+  const { logout, isLoggedIn } = useAuthStore()
 
   const handleLogOut = () => {
-    console.log("logged out");
-    logout();
-  };
+    console.log('logged out')
+    logout()
+  }
   return (
     <>
       <div id="sidebar">
@@ -46,5 +46,5 @@ export default function Root() {
       <div id="detail"></div>
       <button onClick={handleLogOut}>Logout</button>
     </>
-  );
+  )
 }

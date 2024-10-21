@@ -3,10 +3,10 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+} from '@/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
 
-import React from "react";
+import React from 'react'
 
 export function LanguageSwitcher() {
   return (
@@ -30,10 +30,10 @@ export function LanguageSwitcher() {
         </DropdownMenu>
       </div>
     </React.Fragment>
-  );
+  )
 }
 
-function CheckIcon(props) {
+function CheckIcon(props: any) {
   return (
     <svg
       {...props}
@@ -49,10 +49,10 @@ function CheckIcon(props) {
     >
       <path d="M20 6 9 17l-5-5" />
     </svg>
-  );
+  )
 }
 
-function ChevronDownIcon(props) {
+function ChevronDownIcon(props: any) {
   return (
     <svg
       {...props}
@@ -68,10 +68,10 @@ function ChevronDownIcon(props) {
     >
       <path d="m6 9 6 6 6-6" />
     </svg>
-  );
+  )
 }
 
-function GlobeIcon(props) {
+function GlobeIcon(props: any) {
   return (
     <svg
       {...props}
@@ -89,5 +89,5 @@ function GlobeIcon(props) {
       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
       <path d="M2 12h20" />
     </svg>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -84,7 +84,7 @@ button:focus-visible {
   line-height: 18px;
   margin: 12px 0 8px 0;
 }
-.rdp [aria-hidden="true"] {
+.rdp [aria-hidden='true'] {
   @apply hidden;
 }
 

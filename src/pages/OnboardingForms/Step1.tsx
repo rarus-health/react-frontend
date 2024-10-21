@@ -11,7 +11,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select'
 
 interface Step1Props {
   formData: any;
@@ -323,7 +323,7 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Step1;
+export default Step1

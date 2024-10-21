@@ -135,7 +135,7 @@ const Step2: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Step2;
+export default Step2

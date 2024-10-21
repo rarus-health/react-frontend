@@ -1,26 +1,26 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
-import { PasswordInput } from "@/components/ui/password-input";
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { useNavigate } from 'react-router-dom'
+import { PasswordInput } from '@/components/ui/password-input'
 
 export default function ResetPassswordConfirmation() {
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(false)
 
-  console.log("success:", success);
+  console.log('success:', success)
   const handleRecoverPassword = () => {
-    setSuccess(true);
-  };
+    setSuccess(true)
+  }
   return (
     <div className="flex md:justify-center flex-col  items-center min-h-screen overflow-hidden">
       <div className="w-full mx-auto lg:max-w-lg">
         {success ? (
           <div className="flex w-[312px] text-center flex-col justify-center items-center min-h-screen overflow-hidden">
             <p className="text-green-600">
-              {" "}
+              {' '}
               La contraseña se ha cambiado correctamente, ahora puede iniciar
-              sesión.{" "}
+              sesión.{' '}
             </p>
             <div className="mt-4 text-sm text-center ">
               <Link to="/login" className="text-[#77858C] ">
@@ -52,5 +52,5 @@ export default function ResetPassswordConfirmation() {
         )}
       </div>
     </div>
-  );
+  )
 }

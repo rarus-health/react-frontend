@@ -1,17 +1,17 @@
-import { create } from "zustand";
+import { create } from 'zustand'
 
 interface StoreState {
-  firstOnboardingComplited: boolean;
-  completeOnboarding: () => void;
+  firstOnboardingComplited: boolean
+  completeOnboarding: () => void
 }
 
 const useStore = create<StoreState>((set) => ({
   firstOnboardingComplited:
-    Boolean(localStorage.getItem("firstOnboardingComplited")) || false,
+    Boolean(localStorage.getItem('firstOnboardingComplited')) || false,
   firstOnboardingCompleted: false, // State variable to track onboarding completion
   completeOnboarding: () => {
-    localStorage.setItem("firstOnboardingComplited", "true"); // Save to localStorage
-    set({ firstOnboardingComplited: true }); // Update state
+    localStorage.setItem('firstOnboardingComplited', 'true') // Save to localStorage
+    set({ firstOnboardingComplited: true }) // Update state
   },
-}));
-export default useStore;
+}))
+export default useStore

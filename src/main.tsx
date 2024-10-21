@@ -21,19 +21,19 @@ import { NextUIProvider } from "@nextui-org/react";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Root />,
   },
   {
-    path: "/about",
+    path: '/about',
     element: <About />,
   },
   {
-    path: "/home",
+    path: '/home',
     element: <Home />,
   },
   {
-    path: "/login",
+    path: '/login',
     element: (
       <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
         <HeaderUserAuth />
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/registration",
+    path: '/registration',
     element: (
       <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
         <HeaderUserAuth />
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/reset-password-request",
+    path: '/reset-password-request',
     element: (
       <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
         <HeaderUserAuth />
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/reset-password",
+    path: '/reset-password',
     element: (
       <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
         <HeaderUserAuth />
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/onboarding/who-needs-help",
+    path: '/onboarding/who-needs-help',
     element: (
       <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
         <Header />
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/onboarding/personal-data-intro",
+    path: '/onboarding/personal-data-intro',
     element: (
       <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
         <Header />
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/onboarding/form",
+    path: '/onboarding/form',
     element: (
       <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
         <Header />
@@ -102,12 +102,12 @@ const router = createBrowserRouter([
       </div>
     ),
   },
-]);
+])
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <NextUIProvider disableBaseline="true" locale="es-ES">
+    <NextUIProvider locale="es-ES">
       <RouterProvider router={router} />
     </NextUIProvider>
   </StrictMode>
-);
+)
