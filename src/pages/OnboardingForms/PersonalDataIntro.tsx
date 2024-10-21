@@ -34,7 +34,7 @@ const PersonalDataIntro: React.FC = () => {
         <Button className="hidden md:block">Continuar</Button>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default PersonalDataIntro;
+export default PersonalDataIntro

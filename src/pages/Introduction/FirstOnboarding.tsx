@@ -1,78 +1,78 @@
-import React, { useState } from "react";
-import imageStep1 from "@/assets/introduction/first-1.svg";
-import imageStep2 from "@/assets/introduction/first-2.svg";
-import imageStep3 from "@/assets/introduction/first-3.svg";
-import imageStep4 from "@/assets/introduction/first-4.svg";
-import useStore from "@/stores/firstOnboardingStore";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import imageStep1 from '@/assets/introduction/first-1.svg'
+import imageStep2 from '@/assets/introduction/first-2.svg'
+import imageStep3 from '@/assets/introduction/first-3.svg'
+import imageStep4 from '@/assets/introduction/first-4.svg'
+import useStore from '@/stores/firstOnboardingStore'
+import { Link } from 'react-router-dom'
 type Step = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  done: boolean;
-  active: boolean;
-};
+  id: number
+  title: string
+  description: string
+  image: string
+  done: boolean
+  active: boolean
+}
 
 const FirstOnboarding: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const { firstOnboardingComplited, completeOnboarding } = useStore();
-  console.log("completeOnboarding:", completeOnboarding);
-  console.log("firstOnboardingComplited:", firstOnboardingComplited);
+  const [currentStep, setCurrentStep] = useState(0)
+  const { firstOnboardingComplited, completeOnboarding } = useStore()
+  console.log('completeOnboarding:', completeOnboarding)
+  console.log('firstOnboardingComplited:', firstOnboardingComplited)
 
   const steps: Step[] = [
     {
       id: 0,
-      title: "¡Bienvenido a Rarus Health!",
+      title: '¡Bienvenido a Rarus Health!',
       description:
-        "Su asistente personal en la vida con necesidades de salud especiales. Apoyo desde los primeros síntomas hasta el tratamiento de la enfermedad",
+        'Su asistente personal en la vida con necesidades de salud especiales. Apoyo desde los primeros síntomas hasta el tratamiento de la enfermedad',
       image: imageStep1,
       done: true,
       active: true,
     },
     {
       id: 1,
-      title: "",
+      title: '',
       description:
-        "Mantenga su información más importante segura y siempre a la mano",
+        'Mantenga su información más importante segura y siempre a la mano',
       image: imageStep2,
       done: false,
       active: false,
     },
     {
       id: 2,
-      title: "",
+      title: '',
       description:
-        "Ayudarlo a tomar las decisiones correctas que proporcionan la información completa",
+        'Ayudarlo a tomar las decisiones correctas que proporcionan la información completa',
       image: imageStep3,
       done: false,
       active: false,
     },
     {
       id: 3,
-      title: "",
+      title: '',
       description:
-        "Prepare a su familia para una visita efectiva al consultorio del médico.",
+        'Prepare a su familia para una visita efectiva al consultorio del médico.',
       image: imageStep4,
       done: false,
       active: false,
     },
-  ];
+  ]
 
-  const step = steps[currentStep];
-  console.log("currentStep:", currentStep);
+  const step = steps[currentStep]
+  console.log('currentStep:', currentStep)
 
   const nextStep = (stepIndex: number) => {
     if (stepIndex >= steps.length) {
-      console.log("stepIndex:", stepIndex);
-      console.log("steps:", steps.length);
-      setCurrentStep(0);
-      completeOnboarding();
+      console.log('stepIndex:', stepIndex)
+      console.log('steps:', steps.length)
+      setCurrentStep(0)
+      completeOnboarding()
       // Handle completion logic here
     } else {
-      setCurrentStep(stepIndex);
+      setCurrentStep(stepIndex)
     }
-  };
+  }
 
   return (
     <div className="flex h-screen items-center">
@@ -108,13 +108,13 @@ const FirstOnboarding: React.FC = () => {
             className="r-btn r-btn-main"
             onClick={() => nextStep(currentStep + 1)}
           >
-            {currentStep < 3 ? "Next" : "Continue"}
+            {currentStep < 3 ? 'Next' : 'Continue'}
           </button>
         </div>
       </div>
       <div className="flex-grow" />
     </div>
-  );
-};
+  )
+}
 
-export default FirstOnboarding;
+export default FirstOnboarding

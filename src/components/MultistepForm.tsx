@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { useLocation } from "react-router-dom";
 
 function MultistepForm() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0)
   const [formData, setFormData] = useState({
     medicalInstitution: "",
     geneticTest: undefined, // начальное значение "не выбрано"
@@ -51,7 +51,7 @@ function MultistepForm() {
           onNext={handleNext}
           defaultValues={savedData[1]}
         />
-      );
+      )
     } else {
       return (
         <Step3
@@ -62,9 +62,9 @@ function MultistepForm() {
           onSubmit={handleSubmit}
           defaultValues={savedData[2]}
         />
-      );
+      )
     }
-  };
+  }
 
   useEffect(() => {
     // Scroll to the top of the page whenever the page changes
@@ -83,19 +83,19 @@ function MultistepForm() {
           <div className="z-10 flex gap-12">
             <button
               onClick={() => setCurrentStep(0)}
-              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 0 ? "bg-blue-600 text-white" : "bg-white text-blue-600"}`}
+              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 0 ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'}`}
             >
               1
             </button>
             <button
               onClick={() => setCurrentStep(1)}
-              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 1 ? "bg-blue-600 text-white" : "bg-white text-blue-600"}`}
+              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 1 ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'}`}
             >
               2
             </button>
             <button
               onClick={() => setCurrentStep(2)}
-              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 2 ? "bg-blue-600 text-white" : "bg-white text-blue-600"}`}
+              className={`font-semibold text-xxs m-0 p-0 w-6 h-6 rounded-full border border-blue-600 ${currentStep === 2 ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'}`}
             >
               3
             </button>
@@ -110,7 +110,7 @@ function MultistepForm() {
               className="md:hidden"
               variant="mobile"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Continuar
@@ -118,7 +118,7 @@ function MultistepForm() {
             <Button
               className="hidden md:block"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Continuar
@@ -139,7 +139,7 @@ function MultistepForm() {
             <Button
               className="text-[10px] bg-[#2738F5] text-[white] font-bold py-[7px] px-4 rounded-r-xl lg:text-[1.5rem]"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Continuar
@@ -152,7 +152,7 @@ function MultistepForm() {
               className="md:hidden"
               variant="mobile"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Guardar y continuar
@@ -160,7 +160,7 @@ function MultistepForm() {
             <Button
               className="hidden md:block"
               onClick={() => {
-                setCurrentStep((currPage) => currPage + 1);
+                setCurrentStep((currPage) => currPage + 1)
               }}
             >
               Guardar y continuar
@@ -169,7 +169,7 @@ function MultistepForm() {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default MultistepForm;
+export default MultistepForm

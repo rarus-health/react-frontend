@@ -52,7 +52,7 @@ const WhoNeedsHelp: React.FC = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default WhoNeedsHelp;
+export default WhoNeedsHelp

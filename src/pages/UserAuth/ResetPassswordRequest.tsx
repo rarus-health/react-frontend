@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
 
 export default function ResetPassswordRequest() {
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(false)
 
   const handleRecoverPassword = () => {
-    setSuccess(true);
-  };
+    setSuccess(true)
+  }
   return (
     <div className="flex  md:justify-center flex-col items-center min-h-screen overflow-hidden mb-10">
       <div className="w-full mx-auto lg:max-w-lg">
         {success ? (
           <div className="flex w-[312px] text-center flex-col justify-center items-center min-h-screen overflow-hidden">
             <p className="text-green-600">
-              {" "}
+              {' '}
               Se envió un correo electrónico a la dirección de correo
               electrónico que especificó. Haga clic en el enlace para
-              restablecer su contraseña.{" "}
+              restablecer su contraseña.{' '}
             </p>
             <div className="mt-4 text-sm text-center ">
               <Link to="/login" className="text-[#77858C] ">
@@ -48,5 +48,5 @@ export default function ResetPassswordRequest() {
         )}
       </div>
     </div>
-  );
+  )
 }

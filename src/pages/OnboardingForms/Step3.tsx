@@ -53,21 +53,21 @@ const Step3: React.FC = () => {
               Soy padre o tutor legal de una persona en cuestión. He leído
               atentamente el documento y doy mi consentimiento para el
               procesamiento de mis datos personales y los datos personales de la
-              persona en cuestión.{" "}
+              persona en cuestión.{' '}
             </label>
           </div>
         </div>
         <Button
           className="w-6 h-6 max-w-6 hidden"
           onClick={(e) => {
-            e.stopPropagation();
+            e.stopPropagation()
           }}
         >
           <img src={playIcon} alt="play" className="w-6 h-6 max-w-6" />
         </Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Step3;
+export default Step3
