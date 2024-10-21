@@ -12,7 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { parseDate } from '@internationalized/date' // Импортируем parseDate
 
 interface Step1Props {
   formData: any
@@ -32,25 +31,7 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
     .map(([country]) => country)
 
   return (
-    /*     <div>
-      <h2>Step 1: Personal Information</h2>
-      <input
-        {...register("name", { required: "Name is required" })}
-        placeholder="Name"
-      />
-      {errors.name && <span>{errors.name.message}</span>}
-      <input
-        {...register("email", {
-          required: "Email is required",
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "Invalid email address",
-          },
-        })}
-        placeholder="Email"
-      />
-      {errors.email && <span>{errors.email.message}</span>}
-    </div> */
+
 
     <div className="px-6 w-full bg-white max-w-3xl mx-auto">
       <div>
@@ -143,13 +124,12 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
                     hideTimeZone
                     variant="bordered"
                     showMonthAndYearPickers
-                    value={field.value ? field.value : null} // Убедитесь, что значение корректно передается
+                    value={field.value ? field.value : null} 
                     onChange={(date) => {
-                      console.log(date) // Логируем значение даты для проверки формата
                       if (date) {
-                        field.onChange(date) // Преобразуем дату и устанавливаем
+                        field.onChange(date) 
                       } else {
-                        field.onChange(null) // Если нет даты, устанавливаем null
+                        field.onChange(null) 
                       }
                     }}
                   />
@@ -290,13 +270,12 @@ const Step1: React.FC<Step1Props> = ({ adult }) => {
                       hideTimeZone
                       variant="bordered"
                       showMonthAndYearPickers
-                      value={field.value ? field.value : null} // Убедитесь, что значение корректно передается
+                      value={field.value ? field.value : null}
                       onChange={(date) => {
-                        console.log(date) // Логируем значение даты для проверки формата
                         if (date) {
-                          field.onChange(date) // Преобразуем дату и устанавливаем
+                          field.onChange(date)
                         } else {
-                          field.onChange(null) // Если нет даты, устанавливаем null
+                          field.onChange(null)
                         }
                       }}
                     />

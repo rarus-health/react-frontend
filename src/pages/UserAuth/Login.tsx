@@ -34,12 +34,11 @@ export default function LoginAccount() {
     const { email, password } = data
     login(email, password)
     navigate('/')
-    console.log('logged in')
     if (isLoggedIn) {
       console.log('logged in')
-      navigate('/') // Навигация только при успешном логине
+      navigate('/')
     } else {
-      console.log('Неверный email или пароль.') // Обработка ошибки
+      console.log('Wrong email or password.')
     }
   }
 

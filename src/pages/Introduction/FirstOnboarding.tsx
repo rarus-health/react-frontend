@@ -17,8 +17,6 @@ type Step = {
 const FirstOnboarding: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0)
   const { firstOnboardingComplited, completeOnboarding } = useStore()
-  console.log('completeOnboarding:', completeOnboarding)
-  console.log('firstOnboardingComplited:', firstOnboardingComplited)
 
   const steps: Step[] = [
     {
@@ -60,12 +58,9 @@ const FirstOnboarding: React.FC = () => {
   ]
 
   const step = steps[currentStep]
-  console.log('currentStep:', currentStep)
 
   const nextStep = (stepIndex: number) => {
     if (stepIndex >= steps.length) {
-      console.log('stepIndex:', stepIndex)
-      console.log('steps:', steps.length)
       setCurrentStep(0)
       completeOnboarding()
       // Handle completion logic here

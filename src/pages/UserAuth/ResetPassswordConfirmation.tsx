@@ -8,7 +8,6 @@ import { PasswordInput } from '@/components/ui/password-input'
 export default function ResetPassswordConfirmation() {
   const [success, setSuccess] = useState(false)
 
-  console.log('success:', success)
   const handleRecoverPassword = () => {
     setSuccess(true)
   }
