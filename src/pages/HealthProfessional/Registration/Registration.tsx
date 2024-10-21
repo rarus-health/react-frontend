@@ -33,7 +33,7 @@ export default function Registration() {
 
   const { registerUser, isRegistering, registerError, token } =
     useRegistration()
-  const { redirectIfUserIsLoggedIn, setToken } = useToken()
+  const { redirectIfUserIsLoggedIn, persistToken } = useToken()
 
   const [policyAccepted, setPolicyAccepted] = useState(false)
   const [termsAccepted, setTermsAccepted] = useState(false)
@@ -63,7 +63,7 @@ export default function Registration() {
 
   useEffect(() => {
     if (token) {
-      setToken(token)
+      persistToken(token)
       navigate('/health-professional/onboarding')
       return
     }

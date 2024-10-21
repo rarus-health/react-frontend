@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Title from '@/components/ui/Title'
-import Text from '@/components/ui/Text'
 
 import { introducionSteps } from './utils/introductionSteps'
 import { useToken } from '../utils/useToken'
@@ -35,7 +34,10 @@ export default function Introduction() {
           alt=""
         />
         {stepData.title && <Title text={stepData.title} />}
-        <Text text={stepData.description} />
+
+        <p className="text-[14pt] text-[#7E99AC] text-center max-w-[777px] mb-[30px]">
+          {stepData.description}
+        </p>
         <Button type="submit" onClick={() => handleNextStep()}>
           Siguiente
         </Button>

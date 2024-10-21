@@ -1,14 +1,29 @@
+import { isTokenExpired } from '@/shared/jwt/jwt'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+const TOKEN_KEY = 'healthProfessionalToken'
+
 export const useToken = () => {
   const navigate = useNavigate()
+  const [token, setToken] = useState<string | null>(null)
 
-  const [tokenState, setTokenState] = useState<string | null>(null)
+  const getToken = () => {
+    const localStorageToken = localStorage.getItem(TOKEN_KEY)
+    if (!localStorageToken || isTokenExpired(localStorageToken)) {
+      navigate('/health-professional/login')
+      return
+    }
+    setToken(localStorageToken)
+  }
+
+  const persistToken = (token: string) => {
+    setToken(token)
+    localStorage.setItem(TOKEN_KEY, token)
+  }
 
   const redirectIfUserIsLoggedIn = () => {
-    const token = localStorage.getItem('accessToken')
-
+    const token = localStorage.getItem(TOKEN_KEY)
     if (token) {
       if (isTokenExpired(String(token))) {
         navigate('/health-professional/login')
@@ -18,43 +33,5 @@ export const useToken = () => {
     }
   }
 
-  const getToken = () => {
-    const token = localStorage.getItem('accessToken')
-    if (token) {
-      const tokenStr = String(token)
-      if (isTokenExpired(tokenStr)) {
-        navigate('/health-professional/login')
-        return
-      }
-      setTokenState(tokenStr)
-    }
-  }
-
-  const setToken = (token: string) => {
-    setTokenState(token)
-    localStorage.setItem('accessToken', token)
-  }
-
-  const isTokenExpired = (token: string) => {
-    const decoded = parseJwt(token)
-    const currentTime = Date.now() / 1000
-    return decoded.exp < currentTime
-  }
-
-  const parseJwt = (token: string) => {
-    const base64Url = token.split('.')[1]
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-    const jsonPayload = decodeURIComponent(
-      atob(base64)
-        .split('')
-        .map(function (c) {
-          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-        })
-        .join('')
-    )
-
-    return JSON.parse(jsonPayload)
-  }
-
-  return { getToken, setToken, redirectIfUserIsLoggedIn, token: tokenState }
+  return { getToken, persistToken, redirectIfUserIsLoggedIn, token }
 }

@@ -32,7 +32,7 @@ export default function Login() {
   })
 
   const { login, isLogging, loginError, token } = useLogin()
-  const { redirectIfUserIsLoggedIn, setToken } = useToken()
+  const { redirectIfUserIsLoggedIn, persistToken } = useToken()
 
   const [showErrors, setShowErrors] = useState(false)
 
@@ -52,7 +52,7 @@ export default function Login() {
 
   useEffect(() => {
     if (token) {
-      setToken(token)
+      persistToken(token)
       navigate('/health-professional/onboarding')
       return
     }
