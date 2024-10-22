@@ -30,7 +30,12 @@ export const FormInput = ({
       >
         {required ? `${label}*` : label}
       </label>
-      <Input id={id} type={type} {...register(id, validations)} />
+      <Input
+        id={id}
+        type={type}
+        {...register(id, validations)}
+        className="bg-white"
+      />
     </div>
   )
 }

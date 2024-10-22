@@ -53,7 +53,7 @@ export default function Login() {
   useEffect(() => {
     if (token) {
       persistToken(token)
-      navigate('/health-professional/onboarding')
+      navigate('/health-professional/onboarding/first-step')
       return
     }
   }, [token])

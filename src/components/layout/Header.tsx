@@ -13,8 +13,6 @@ const Header = (props: Props) => {
   return (
     <header className="px-10 md:px-36 relative z-10 flex justify-between items-center bg-white">
       <div className="flex gap-5 sm:gap-10 items-center">
-        {' '}
-        {/* Aumenta el valor de gap aquí */}
         <div>
           <img
             alt="logo"

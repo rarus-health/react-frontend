@@ -64,7 +64,7 @@ export default function Registration() {
   useEffect(() => {
     if (token) {
       persistToken(token)
-      navigate('/health-professional/onboarding')
+      navigate('/health-professional/onboarding/first-step')
       return
     }
   }, [token])
