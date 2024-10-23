@@ -1,26 +1,27 @@
 import { DateValue } from '@nextui-org/react'
 
 export interface FormData {
-  surname: string
-  representativeSurname: string
-  whatsapp: string
+  lastName: string
+  representativeLastName: string
+  phone: string
   name: string
   representativeName: string
   citizenship: string
   representativeCitizenship: string
   gender: string
   representativeGender: string
-  dateOfBirth: DateValue | null
+  birthday: DateValue | null
   representativeDateOfBirth: DateValue | null
-  placeOfResidence: string
+  location: string
   representativePlaceOfResidence: string
   email: string
   age: string
-  occupation: string
   interests: string
-  medicalInstitution: string
+  mainHospital: string
+  otherDisorder: string
   geneticTest: boolean
   diagnosis: boolean
   epilepsy: boolean
   agreeConsent: boolean
+  adult: boolean
 }

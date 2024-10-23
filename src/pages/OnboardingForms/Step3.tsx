@@ -1,15 +1,15 @@
 // Step3.tsx
-import React, { useState } from "react";
-import { useFormContext } from "react-hook-form";
-import { FormData } from "../../stores/types";
-import playIcon from "@/assets/forms/play-icon.svg";
-import { Button } from "@/components/ui/button";
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
+import { FormData } from '../../stores/types'
+import playIcon from '@/assets/forms/play-icon.svg'
+import { Button } from '@/components/ui/button'
 
 const Step3: React.FC = () => {
   const {
     register,
     formState: { errors },
-  } = useFormContext<FormData>();
+  } = useFormContext<FormData>()
 
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto ">
@@ -38,8 +38,8 @@ const Step3: React.FC = () => {
                 className="mr-8 h-4 w-4"
                 type="radio"
                 value="false"
-                {...register("agreeConsent", {
-                  required: "Consent is required",
+                {...register('agreeConsent', {
+                  required: 'Consent is required',
                 })}
               />
               {errors.agreeConsent && (

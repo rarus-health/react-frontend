@@ -1,17 +1,13 @@
-// Step2.tsx
-import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import { FormData } from "../../stores/types";
-import { RadioGroup, Radio } from "@nextui-org/radio"; // Импорт радио компонентов
-import { Input } from "@/components/ui/input"; // Импорт кастомного инпута
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
+import { FormData } from '../../stores/types'
+import { Input } from '@/components/ui/input'
 
 const Step2: React.FC = () => {
   const {
-    setValue,
-    control,
     register,
     formState: { errors },
-  } = useFormContext<FormData>();
+  } = useFormContext<FormData>()
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto">
       <div className="personal">
@@ -19,9 +15,9 @@ const Step2: React.FC = () => {
           Complete información sobre usted
         </h3>
 
-        {/* Поле для медицинской институции */}
+        {/* Field for medical institution */}
         <div className="flex flex-col">
-          <label className="r-label mb-0" htmlFor="medicalInstitution">
+          <label className="r-label mb-0" htmlFor="mainHospital">
             Institución médica principal
           </label>
           <span className="text-xs mb-2.5 text-[#717171]">
@@ -29,18 +25,39 @@ const Step2: React.FC = () => {
           </span>
           <Input
             className="r-input"
-            id="medicalInstitution"
-            {...register("medicalInstitution", {
-              required: "Este campo es obligatorio",
+            id="mainHospital"
+            {...register('mainHospital', {
+              required: 'Este campo es obligatorio',
             })}
             type="text"
           />
-          {errors.medicalInstitution && (
-            <p className="text-red-500">{errors.medicalInstitution.message}</p>
+          {errors.mainHospital && (
+            <p className="text-red-500">{errors.mainHospital.message}</p>
           )}
         </div>
 
-        {/* Поле для выбора генетического теста */}
+        {/* Field for medical institution */}
+        <div className="flex flex-col">
+          <label className="r-label mb-0" htmlFor="otherDisorder">
+            Diagnosis
+          </label>
+          <span className="text-xs mb-2.5 text-[#717171]">
+            Especifique el diagnosis
+          </span>
+          <Input
+            className="r-input"
+            id="otherDisorder"
+            {...register('otherDisorder', {
+              required: 'Este campo es obligatorio',
+            })}
+            type="text"
+          />
+          {errors.otherDisorder && (
+            <p className="text-red-500">{errors.otherDisorder.message}</p>
+          )}
+        </div>
+
+        {/* Field for genetic test */}
         <div className="flex flex-col">
           <label className="r-label mb-0">Prueba genética</label>
           <span className="text-xs mb-2.5 text-[#717171]">
@@ -51,8 +68,8 @@ const Step2: React.FC = () => {
             <input
               type="radio"
               value="true"
-              {...register("geneticTest", {
-                required: "Por favor, seleccione una opción",
+              {...register('geneticTest', {
+                required: 'Por favor, seleccione una opción',
               })}
             />
             <label className="ml-2">Yes</label>
@@ -61,8 +78,8 @@ const Step2: React.FC = () => {
             <input
               type="radio"
               value="false"
-              {...register("geneticTest", {
-                required: "Por favor, seleccione una opción",
+              {...register('geneticTest', {
+                required: 'Por favor, seleccione una opción',
               })}
             />
             <label className="ml-2">No</label>
@@ -72,7 +89,7 @@ const Step2: React.FC = () => {
           )}
         </div>
 
-        {/* Поле для диагноза */}
+        {/* Field for diagnosis */}
         <div className="flex flex-col">
           <label className="r-label mb-0">Diagnóstico</label>
           <span className="text-xs mb-2.5 text-[#717171]">
@@ -82,8 +99,8 @@ const Step2: React.FC = () => {
             <input
               type="radio"
               value="true"
-              {...register("diagnosis", {
-                required: "Por favor, seleccione una opción",
+              {...register('diagnosis', {
+                required: 'Por favor, seleccione una opción',
               })}
             />
             <label className="ml-2">Yes</label>
@@ -92,8 +109,8 @@ const Step2: React.FC = () => {
             <input
               type="radio"
               value="false"
-              {...register("diagnosis", {
-                required: "Por favor, seleccione una opción",
+              {...register('diagnosis', {
+                required: 'Por favor, seleccione una opción',
               })}
             />
             <label className="ml-2">No</label>
@@ -103,7 +120,7 @@ const Step2: React.FC = () => {
           )}
         </div>
 
-        {/* Поле для эпилепсии */}
+        {/* Field for epilepsy */}
         <div className="flex flex-col">
           <label className="r-label mb-0">Epilepsia</label>
           <span className="text-xs mb-2.5 text-[#717171]">
@@ -113,8 +130,8 @@ const Step2: React.FC = () => {
             <input
               type="radio"
               value="true"
-              {...register("epilepsy", {
-                required: "Por favor, seleccione una opción",
+              {...register('epilepsy', {
+                required: 'Por favor, seleccione una opción',
               })}
             />
             <label className="ml-2">Yes</label>
@@ -123,8 +140,8 @@ const Step2: React.FC = () => {
             <input
               type="radio"
               value="false"
-              {...register("epilepsy", {
-                required: "Por favor, seleccione una opción",
+              {...register('epilepsy', {
+                required: 'Por favor, seleccione una opción',
               })}
             />
             <label className="ml-2">No</label>

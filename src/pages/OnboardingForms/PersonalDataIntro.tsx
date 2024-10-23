@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 const PersonalDataIntro: React.FC = () => {
   const location = useLocation();
-  const { adult } = location.state || {};
+  const { isAdult } = location.state || {};
   return (
     <div className="px-6 w-full bg-white max-w-3xl mx-auto  mt-28">
       <div className="mb-24">
@@ -25,12 +25,12 @@ const PersonalDataIntro: React.FC = () => {
           </p>
         </div>
       </div>
-      <Link to="/onboarding/form" state={{ adult }}>
+      <Link to="/onboarding/form" state={{ isAdult }}>
         <Button className="md:hidden" variant="mobile">
           Continuar
         </Button>
       </Link>
-      <Link to="/onboarding/form" state={{ adult }}>
+      <Link to="/onboarding/form" state={{ isAdult }}>
         <Button className="hidden md:block">Continuar</Button>
       </Link>
     </div>

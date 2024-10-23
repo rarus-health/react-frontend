@@ -22,7 +22,7 @@ const useAuthStore = create(
       isLoggedIn: false,
       setToken: (token: string) => {
         set({ token, isLoggedIn: true })
-        localStorage.setItem('accessToken', token) // Сохраняем токен в localStorage
+        localStorage.setItem('accessToken', token)
       },
       register: async (
         email: string,

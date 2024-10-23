@@ -1,13 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import woman from "@/assets/second-onboarding/women.svg";
-import children from "@/assets/second-onboarding/children.svg";
-
-interface ButtonProps {
-  adult: boolean;
-  children: React.ReactNode;
-}
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import woman from '@/assets/second-onboarding/women.svg'
+import children from '@/assets/second-onboarding/children.svg'
 
 const WhoNeedsHelp: React.FC = () => {
   return (
@@ -26,7 +21,7 @@ const WhoNeedsHelp: React.FC = () => {
             <Link
               to="/onboarding/personal-data-intro"
               className="absolute bottom-6 w-full max-w-48"
-              state={{ adult: true }}
+              state={{ isAdult: true }}
             >
               <Button className="w-full ">Yo</Button>
             </Link>
@@ -36,17 +31,17 @@ const WhoNeedsHelp: React.FC = () => {
             <Link
               to="/onboarding/personal-data-intro"
               className="absolute bottom-6 w-full max-w-48"
-              state={{ adult: false }}
+              state={{ isAdult: false }}
             >
               <Button className="absolute bottom-6 w-48">Mi niño</Button>
             </Link>
           </div>
         </div>
         <div className="flex md:hidden gap-2 mt-28">
-          <Link to="/onboarding/personal-data-intro" state={{ adult: true }}>
+          <Link to="/onboarding/personal-data-intro" state={{ isAdult: true }}>
             <Button className="w-36">Yo</Button>
           </Link>
-          <Link to="/onboarding/personal-data-intro" state={{ adult: false }}>
+          <Link to="/onboarding/personal-data-intro" state={{ isAdult: false }}>
             <Button className="w-36"> Mi niño</Button>
           </Link>
         </div>
