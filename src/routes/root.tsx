@@ -34,6 +34,7 @@ export default function Root() {
           <div className="flex flex-col">
             <Link to="/request-for-care">/request-for-care</Link>
             <Link to="/pregnancy-info">pregnancy-info</Link>
+            <Link to="/childhood-info">childhood-info</Link>
           </div>
         </div>
         <nav>

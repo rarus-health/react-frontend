@@ -125,6 +125,7 @@ const PregnancyInfo: React.FC = () => {
               </p>
             )}
           </div>
+          
           <div className="flex flex-col">
             <label
               className="r-label mb-2.5"

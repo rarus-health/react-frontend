@@ -107,7 +107,6 @@ const Step1: React.FC<Step1Props> = ({ isAdult }) => {
                     <SelectGroup>
                       <SelectItem value="Masculino">Hombre</SelectItem>
                       <SelectItem value="Femenino">Mujer</SelectItem>
-                      <SelectItem value="other">Otro</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -258,7 +257,6 @@ const Step1: React.FC<Step1Props> = ({ isAdult }) => {
                       <SelectGroup>
                         <SelectItem value="Masculino">Hombre</SelectItem>
                         <SelectItem value="Femenino">Mujer</SelectItem>
-                        <SelectItem value="other">Otro</SelectItem>
                       </SelectGroup>
                     </SelectContent>
                   </Select>

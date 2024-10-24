@@ -21,6 +21,8 @@ import { NextUIProvider } from '@nextui-org/react'
 import RequestForCare from './pages/RequestForCare/RequestForCare'
 import GetCareManager from './pages/RequestForCare/GetCareManager'
 import PregnancyInfo from './pages/MainForms/PregnancyInfo'
+import ChildhoodInfo from './pages/MainForms/ChildhoodInfo'
+import { useForm, FormProvider } from "react-hook-form";
 
 const router = createBrowserRouter([
   {
@@ -124,6 +126,18 @@ const router = createBrowserRouter([
         <Header />
         <div className="flex-grow">
           <PregnancyInfo />
+        </div>
+        <Footer />
+      </div>
+    ),
+  },
+  {
+    path: '/childhood-info',
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <div className="flex-grow">
+          <ChildhoodInfo />
         </div>
         <Footer />
       </div>
