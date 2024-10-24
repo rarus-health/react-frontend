@@ -1,23 +1,25 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./styles/index.css";
-import "./styles/modal.css";
-import "./styles/textStyles.css";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Login from "./pages/UserAuth/Login";
-import Registration from "./pages/UserAuth/Registration";
-import Root from "./routes/root";
-import ResetPasswordRequest from "./pages/UserAuth/ResetPassswordRequest";
-import ResetPasswordConfirmation from "./pages/UserAuth/ResetPassswordConfirmation";
-import WhoNeedsHelp from "./pages/OnboardingForms/WhoNeedsHelp";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import PersonalDataIntro from "./pages/OnboardingForms/PersonalDataIntro";
-import HeaderUserAuth from "./components/layout/HeaderUserAuth";
-import MultistepForm from "./pages/OnboardingForms/MultistepForm";
-import { NextUIProvider } from "@nextui-org/react";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import './styles/index.css'
+import './styles/modal.css'
+import './styles/textStyles.css'
+import Home from './pages/Home'
+import About from './pages/About'
+import Login from './pages/UserAuth/Login'
+import Registration from './pages/UserAuth/Registration'
+import Root from './routes/root'
+import ResetPasswordRequest from './pages/UserAuth/ResetPassswordRequest'
+import ResetPasswordConfirmation from './pages/UserAuth/ResetPassswordConfirmation'
+import WhoNeedsHelp from './pages/OnboardingForms/WhoNeedsHelp'
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
+import PersonalDataIntro from './pages/OnboardingForms/PersonalDataIntro'
+import HeaderUserAuth from './components/layout/HeaderUserAuth'
+import MultistepForm from './pages/OnboardingForms/MultistepForm'
+import { NextUIProvider } from '@nextui-org/react'
+import RequestForCare from './pages/RequestForCare/RequestForCare'
+import GetCareManager from './pages/RequestForCare/GetCareManager'
 
 const router = createBrowserRouter([
   {
@@ -85,6 +87,30 @@ const router = createBrowserRouter([
         <Header />
         <div className="flex-grow">
           <PersonalDataIntro />
+        </div>
+        <Footer />
+      </div>
+    ),
+  },
+  {
+    path: '/request-for-care',
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <div className="flex-grow">
+          <RequestForCare />
+        </div>
+        <Footer />
+      </div>
+    ),
+  },
+  {
+    path: '/get-care-manager',
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <div className="flex-grow">
+          <GetCareManager />
         </div>
         <Footer />
       </div>

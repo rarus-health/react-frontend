@@ -31,6 +31,7 @@ export default function Root() {
             </Link>
             <Link to="/onboarding/form">/form</Link>
           </form>
+            <Link to="/request-for-care">/request-for-care</Link>
         </div>
         <nav>
           <ul>
