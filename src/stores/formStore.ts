@@ -5,7 +5,7 @@ import { AgreeConsentInput } from '../pages/OnboardingForms/utils/MultistepForm/
 import {
   PatientPersonalInputs,
   PatientMedicalInputs,
-} from '../pages/OnboardingForms/utils/MultistepForm/types/PatientInputs'
+} from '../pages/MainForms/utils/types/PregnancyInfoInputs'
 import { CaregiverPersonalInputs } from '../pages/OnboardingForms/utils/MultistepForm/types/CaregiverInputs'
 import { formatDateValue } from '@/shared/utils/dateUtils'
 

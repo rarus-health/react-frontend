@@ -19,7 +19,6 @@ interface Step1Props {
 }
 
 const Step1: React.FC<Step1Props> = ({ isAdult }) => {
-  console.log('isAdult:', isAdult)
   const {
     register,
     control,

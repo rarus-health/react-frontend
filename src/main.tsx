@@ -20,6 +20,7 @@ import MultistepForm from './pages/OnboardingForms/MultistepForm'
 import { NextUIProvider } from '@nextui-org/react'
 import RequestForCare from './pages/RequestForCare/RequestForCare'
 import GetCareManager from './pages/RequestForCare/GetCareManager'
+import PregnancyInfo from './pages/MainForms/PregnancyInfo'
 
 const router = createBrowserRouter([
   {
@@ -111,6 +112,18 @@ const router = createBrowserRouter([
         <Header />
         <div className="flex-grow">
           <GetCareManager />
+        </div>
+        <Footer />
+      </div>
+    ),
+  },
+  {
+    path: '/pregnancy-info',
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <div className="flex-grow">
+          <PregnancyInfo />
         </div>
         <Footer />
       </div>

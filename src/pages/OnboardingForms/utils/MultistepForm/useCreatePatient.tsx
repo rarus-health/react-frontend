@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { PatientMedicalInputs } from './types/PatientInputs.ts'
+import { PatientMedicalInputs } from '../../../MainForms/utils/types/PregnancyInfoInputs.ts'
 import { BASE_URL, temporalToken } from '@/shared/utils/constants'
 
 import { updateUser, addRole, signAgreement } from './useCreateUser.tsx'

@@ -31,7 +31,10 @@ export default function Root() {
             </Link>
             <Link to="/onboarding/form">/form</Link>
           </form>
+          <div className="flex flex-col">
             <Link to="/request-for-care">/request-for-care</Link>
+            <Link to="/pregnancy-info">pregnancy-info</Link>
+          </div>
         </div>
         <nav>
           <ul>

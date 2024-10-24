@@ -7,7 +7,7 @@ import {
   temporalToken,
   userRoleUserAsCaregiverId,
 } from '@/shared/utils/constants'
-import { PatientMedicalInputs } from './types/PatientInputs.ts'
+import { PatientMedicalInputs } from '../../../MainForms/utils/types/PregnancyInfoInputs.ts'
 import { updateUser, addRole, signAgreement } from './useCreateUser.tsx'
 
 import { CaregiverPersonalInputs } from './types/CaregiverInputs.ts'
