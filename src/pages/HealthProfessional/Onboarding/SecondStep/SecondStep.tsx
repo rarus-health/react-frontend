@@ -1,6 +1,6 @@
 import Header from '@/components/layout/Header'
 import { useLocation } from 'react-router-dom'
-import { StepIndicator } from './utils/StepIndicator'
+import { StepIndicator } from '../utils/StepIndicator'
 
 import LabResearthImg from '@/assets/healthProfessional/onboarding/onboardingSecondStep/lab-research.svg'
 import GeneticsImg from '@/assets/healthProfessional/onboarding/onboardingSecondStep/genetics.svg'
@@ -15,7 +15,7 @@ import TreatmentImg from '@/assets/healthProfessional/onboarding/onboardingSecon
 import CertificateImg from '@/assets/healthProfessional/onboarding/onboardingSecondStep/certificate.svg'
 import BorderImg from '@/assets/healthProfessional/onboarding/onboardingSecondStep/border.svg'
 
-import { ProfessionalActionBox } from './utils/OnboardingSecondStep/ProfessionalActionBox'
+import { ProfessionalActionBox } from './utils/ProfessionalActionBox'
 import { Button } from '@/components/ui/button'
 
 const OnboardingSecondStep = () => {
@@ -49,6 +49,7 @@ const OnboardingSecondStep = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
             <ProfessionalActionBox
+              name="clinicalTrialsInfo"
               imageSrc={LabResearthImg}
               text={
                 'Más información sobre como realizar ensayos clínicos y participar en ellos.'
@@ -56,11 +57,13 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="geneticsKnowledge"
               imageSrc={GeneticsImg}
               text={'Desarrollar mis conocimientos sobre genética.'}
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="collaborateWithSpecialists"
               imageSrc={HandshakeImg}
               text={
                 'Colaborar con otros especialistas de salud y cooperar con especialistas internacionales.'
@@ -68,6 +71,7 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="createHealthNetwork"
               imageSrc={WorldImg}
               text={
                 'Generar y ser parte de una red especial para especialistas de la salud. Escribir y publicar artículos. Compartir experiencias con otros especialistas.'
@@ -75,6 +79,7 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="teamworkSkills"
               imageSrc={TeamImg}
               text={
                 'Aprender a trabajar y comunicarse en un equipo interdisciplinario.'
@@ -82,6 +87,7 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="analyzeClinicalCases"
               imageSrc={ArticleImg}
               text={
                 'Analizar casos clínicos reales. Utilizar los datos de casos clínicos para publicaciones.'
@@ -89,6 +95,7 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="latestResearchArticles"
               imageSrc={LabResearthImg}
               text={
                 'Obtener los últimos artículos sobre enfermedades genéticas raras.'
@@ -96,6 +103,7 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="webinarsParticipation"
               imageSrc={VideoImg}
               text={
                 'Participar en seminarios web y otros eventos dedicados a enfermedades genésticas raras.'
@@ -103,11 +111,13 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="applyAsSpeaker"
               imageSrc={BoardImg}
               text={'Postular como orador de algún curso o webinar.'}
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="patientHistoryAndSymptoms"
               imageSrc={SymptomsImg}
               text={
                 'Conocer el historial clínico y los síntomas de mi paciente.'
@@ -115,13 +125,15 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="treatmentGuide"
               imageSrc={TreatmentImg}
               text={
-                'Obtener una guía paso a paso para adminsitrar tratamiento a mis pacientes.'
+                'Obtener una guía paso a paso para administrar tratamiento a mis pacientes.'
               }
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="improveKnowledgeCertification"
               imageSrc={CertificateImg}
               text={
                 'Mejorar mis conocimientos y obtener un certificado que lo avale.'
@@ -129,6 +141,7 @@ const OnboardingSecondStep = () => {
               onClick={handleSelection}
             />
             <ProfessionalActionBox
+              name="allOptions"
               imageSrc={BorderImg}
               text={'Todo lo anterior y más.'}
               onClick={handleSelection}
@@ -144,6 +157,7 @@ const OnboardingSecondStep = () => {
             <input
               type="text"
               id="otherOption"
+              name="otherOption" // Add a descriptive name attribute
               placeholder="Escribe tu opción aquí"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm md:text-base lg:text-lg"
             />

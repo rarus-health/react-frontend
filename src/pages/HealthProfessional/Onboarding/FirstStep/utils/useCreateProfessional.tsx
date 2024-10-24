@@ -5,18 +5,27 @@ import axios from 'axios'
 export const useCreateProfessional = () => {
   const [isCreating, setIsCreating] = useState(false)
   const [creationError, setCreationError] = useState<null | string>(null)
-  const [professionalId, setProfessionalId] = useState<null | number>(null)
+  const [newProfessionalId, setNewProfessionalId] = useState<null | number>(
+    null
+  )
 
-  const createProfessional = async (inputs: CreateProfessionalInputs) => {
+  const createProfessional = async (
+    inputs: CreateProfessionalInputs,
+    token: string
+  ) => {
     setIsCreating(true)
     setCreationError(null)
     try {
-      // const response = await axios.post(
-      //   'https://rarus-health-qa.uc.r.appspot.com/health-professionals',
-      //   inputs
-      // )
-      // if (response.data.id) setProfessionalId(response.data.id as number)
-      setProfessionalId(1)
+      const response = await axios.post(
+        'https://rarus-health-qa.uc.r.appspot.com/health-professionals',
+        inputs,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      if (response.data.id) setNewProfessionalId(response.data.id as number)
     } catch (err: any) {
       const errorMessage =
         err.response?.data?.error || 'Hubo un error en el servidor.'
@@ -30,6 +39,6 @@ export const useCreateProfessional = () => {
     createProfessional,
     isCreating,
     creationError,
-    professionalId,
+    newProfessionalId,
   }
 }

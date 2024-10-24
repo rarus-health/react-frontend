@@ -26,22 +26,20 @@ export default function Introduction() {
   }, [])
 
   return (
-    <div className="flex h-screen items-center borde">
-      <div className="flex flex-col items-center m-4 borde">
-        <img
-          className="mb-[40px] h-[220px] md:h-[180px]"
-          src={stepData.image}
-          alt=""
-        />
-        {stepData.title && <Title text={stepData.title} />}
+    <div className="flex flex-col items-center h-screen justify-center">
+      <img
+        className="mb-[40px] h-[220px] md:h-[180px]"
+        src={stepData.image}
+        alt=""
+      />
+      {stepData.title && <Title text={stepData.title} />}
 
-        <p className="text-[14pt] text-[#7E99AC] text-center max-w-[777px] mb-[30px]">
-          {stepData.description}
-        </p>
-        <Button type="submit" onClick={() => handleNextStep()}>
-          Siguiente
-        </Button>
-      </div>
+      <p className="text-[14pt] text-[#7E99AC] text-center max-w-[777px] mb-[30px]">
+        {stepData.description}
+      </p>
+      <Button type="submit" onClick={() => handleNextStep()}>
+        Siguiente
+      </Button>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 type Props = {
+  name: string
   imageSrc: string
   text: string
   onClick: (isSelected: boolean) => void
