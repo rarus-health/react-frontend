@@ -35,6 +35,9 @@ export default function Root() {
             <Link to="/request-for-care">/request-for-care</Link>
             <Link to="/pregnancy-info">pregnancy-info</Link>
             <Link to="/childhood-info">childhood-info</Link>
+            <Link to="/preparation-for-medial-Appointment">
+              Preparation For Appointment
+            </Link>
           </div>
         </div>
         <nav>

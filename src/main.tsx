@@ -22,7 +22,8 @@ import RequestForCare from './pages/RequestForCare/RequestForCare'
 import GetCareManager from './pages/RequestForCare/GetCareManager'
 import PregnancyInfo from './pages/MainForms/PregnancyInfo'
 import ChildhoodInfo from './pages/MainForms/ChildhoodInfo'
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm, FormProvider } from 'react-hook-form'
+import PreparationForAppointment from './pages/MainForms/PreparationForAppointment'
 
 const router = createBrowserRouter([
   {
@@ -138,6 +139,18 @@ const router = createBrowserRouter([
         <Header />
         <div className="flex-grow">
           <ChildhoodInfo />
+        </div>
+        <Footer />
+      </div>
+    ),
+  },
+  {
+    path: '/preparation-for-medial-Appointment',
+    element: (
+      <div className="w-screen h-screen flex flex-col max-w-screen-2xl mx-auto">
+        <Header />
+        <div className="flex-grow">
+          <PreparationForAppointment />
         </div>
         <Footer />
       </div>
