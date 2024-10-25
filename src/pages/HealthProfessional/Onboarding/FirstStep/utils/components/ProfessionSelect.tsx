@@ -1,4 +1,4 @@
-import './styles/customOnboardingStyles.css'
+import '../styles/customOnboardingStyles.css'
 
 export const ProfessionSelect = ({ register }: any) => {
   const professions = [

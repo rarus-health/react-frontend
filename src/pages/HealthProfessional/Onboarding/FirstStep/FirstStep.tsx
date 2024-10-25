@@ -1,17 +1,17 @@
 import Header from '@/components/layout/Header'
 import { StepIndicator } from '../utils/StepIndicator'
 import { CreateProfessionalInputs } from './utils/types/CreateProfessionalInputs'
-import { useCreateProfessional } from './utils/useCreateProfessional'
+import { useCreateProfessional } from './utils/hooks/useCreateProfessional'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { ProfessionSelect } from './utils/ProfessionSelect'
-import { FormInput } from './utils/FormInput'
+import { ProfessionSelect } from './utils/components/ProfessionSelect'
+import { FormInput } from './utils/components/FormInput'
 import { Button } from '@/components/ui/button'
 import SpanError from '@/components/ui/SpanError'
-import { checkErrors } from './utils/checkErrors'
+import { checkErrors } from './utils/functions/checkErrors'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useToken } from '../../utils/useToken'
-import { useValidateHealthProfessionalExists } from './utils/useValidateHealthProfessionalExists'
+import { useValidateHealthProfessionalExists } from './utils/hooks/useValidateHealthProfessionalExists'
 
 export default function OnboardingFirstStep() {
   const navigate = useNavigate()

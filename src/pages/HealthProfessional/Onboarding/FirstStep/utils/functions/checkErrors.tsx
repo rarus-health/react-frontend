@@ -1,5 +1,5 @@
 import { FieldErrors } from 'react-hook-form'
-import { CreateProfessionalInputs } from './types/CreateProfessionalInputs'
+import { CreateProfessionalInputs } from '../types/CreateProfessionalInputs'
 
 export const checkErrors = (
   errors: FieldErrors<CreateProfessionalInputs>,

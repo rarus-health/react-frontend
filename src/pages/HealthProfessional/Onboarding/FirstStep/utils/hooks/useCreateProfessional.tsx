@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CreateProfessionalInputs } from './types/CreateProfessionalInputs'
+import { CreateProfessionalInputs } from '../types/CreateProfessionalInputs'
 import axios from 'axios'
 
 export const useCreateProfessional = () => {

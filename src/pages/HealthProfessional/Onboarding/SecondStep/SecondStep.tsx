@@ -1,5 +1,5 @@
 import Header from '@/components/layout/Header'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { StepIndicator } from '../utils/StepIndicator'
 
 import LabResearthImg from '@/assets/healthProfessional/onboarding/onboardingSecondStep/lab-research.svg'
@@ -17,15 +17,74 @@ import BorderImg from '@/assets/healthProfessional/onboarding/onboardingSecondSt
 
 import { ProfessionalActionBox } from './utils/ProfessionalActionBox'
 import { Button } from '@/components/ui/button'
+import { useEffect, useState } from 'react'
+import { useCreatePreferences } from './utils/hooks/useCreatePreferences'
+import { useToken } from '../../utils/useToken'
+import SpanError from '@/components/ui/SpanError'
+import { HealthProfessionalPreferencesInputs } from './utils/types/healthProfessionalPreferences'
 
 const OnboardingSecondStep = () => {
+  const navigate = useNavigate()
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
-  const professionalId = queryParams.get('professionalId')
+  const professionalIdQuery = queryParams.get('professionalId')
 
-  const handleSelection = (isSelected: boolean) => {
-    console.log('Selected:', isSelected)
+  const { createPreferences, isCreating, creationError, hasCreated } =
+    useCreatePreferences()
+
+  const professionalId = professionalIdQuery
+    ? Number(professionalIdQuery)
+    : null
+
+  const [formData, setFormData] = useState<HealthProfessionalPreferencesInputs>(
+    {
+      clinicalTrialsInfo: false,
+      geneticsKnowledge: false,
+      collaborateWithSpecialists: false,
+      createHealthNetwork: false,
+      teamworkSkills: false,
+      analyzeClinicalCases: false,
+      latestResearchArticles: false,
+      webinarsParticipation: false,
+      applyAsSpeaker: false,
+      patientHistoryAndSymptoms: false,
+      treatmentGuide: false,
+      improveKnowledgeCertification: false,
+      allOptions: false,
+      otherOption: '',
+      healthProfessionalId: professionalId as number,
+    }
+  )
+
+  const { getToken, token } = useToken()
+
+  useEffect(() => {
+    console.log(formData)
+  }, [formData])
+
+  const handleSelection = (key: keyof HealthProfessionalPreferencesInputs) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }))
   }
+
+  useEffect(() => {
+    getToken()
+  }, [])
+
+  useEffect(() => {
+    if (
+      hasCreated ||
+      creationError === 'El profesional de salud ya tiene preferencias'
+    ) {
+      navigate('/health-professional/patients')
+    }
+  }, [hasCreated, creationError])
+
+  useEffect(() => {
+    if (hasCreated) navigate('/health-professional/patients')
+  }, [hasCreated])
 
   return (
     <div className="w-screen min-h-screen flex flex-col bg-gray-100">
@@ -54,13 +113,15 @@ const OnboardingSecondStep = () => {
               text={
                 'Más información sobre como realizar ensayos clínicos y participar en ellos.'
               }
-              onClick={handleSelection}
+              isSelected={formData.clinicalTrialsInfo}
+              onClick={() => handleSelection('clinicalTrialsInfo')}
             />
             <ProfessionalActionBox
               name="geneticsKnowledge"
               imageSrc={GeneticsImg}
               text={'Desarrollar mis conocimientos sobre genética.'}
-              onClick={handleSelection}
+              isSelected={formData.geneticsKnowledge}
+              onClick={() => handleSelection('geneticsKnowledge')}
             />
             <ProfessionalActionBox
               name="collaborateWithSpecialists"
@@ -68,7 +129,8 @@ const OnboardingSecondStep = () => {
               text={
                 'Colaborar con otros especialistas de salud y cooperar con especialistas internacionales.'
               }
-              onClick={handleSelection}
+              isSelected={formData.collaborateWithSpecialists}
+              onClick={() => handleSelection('collaborateWithSpecialists')}
             />
             <ProfessionalActionBox
               name="createHealthNetwork"
@@ -76,7 +138,8 @@ const OnboardingSecondStep = () => {
               text={
                 'Generar y ser parte de una red especial para especialistas de la salud. Escribir y publicar artículos. Compartir experiencias con otros especialistas.'
               }
-              onClick={handleSelection}
+              isSelected={formData.createHealthNetwork}
+              onClick={() => handleSelection('createHealthNetwork')}
             />
             <ProfessionalActionBox
               name="teamworkSkills"
@@ -84,7 +147,8 @@ const OnboardingSecondStep = () => {
               text={
                 'Aprender a trabajar y comunicarse en un equipo interdisciplinario.'
               }
-              onClick={handleSelection}
+              isSelected={formData.teamworkSkills}
+              onClick={() => handleSelection('teamworkSkills')}
             />
             <ProfessionalActionBox
               name="analyzeClinicalCases"
@@ -92,7 +156,8 @@ const OnboardingSecondStep = () => {
               text={
                 'Analizar casos clínicos reales. Utilizar los datos de casos clínicos para publicaciones.'
               }
-              onClick={handleSelection}
+              isSelected={formData.analyzeClinicalCases}
+              onClick={() => handleSelection('analyzeClinicalCases')}
             />
             <ProfessionalActionBox
               name="latestResearchArticles"
@@ -100,7 +165,8 @@ const OnboardingSecondStep = () => {
               text={
                 'Obtener los últimos artículos sobre enfermedades genéticas raras.'
               }
-              onClick={handleSelection}
+              isSelected={formData.latestResearchArticles}
+              onClick={() => handleSelection('latestResearchArticles')}
             />
             <ProfessionalActionBox
               name="webinarsParticipation"
@@ -108,13 +174,15 @@ const OnboardingSecondStep = () => {
               text={
                 'Participar en seminarios web y otros eventos dedicados a enfermedades genésticas raras.'
               }
-              onClick={handleSelection}
+              isSelected={formData.webinarsParticipation}
+              onClick={() => handleSelection('webinarsParticipation')}
             />
             <ProfessionalActionBox
               name="applyAsSpeaker"
               imageSrc={BoardImg}
               text={'Postular como orador de algún curso o webinar.'}
-              onClick={handleSelection}
+              isSelected={formData.applyAsSpeaker}
+              onClick={() => handleSelection('applyAsSpeaker')}
             />
             <ProfessionalActionBox
               name="patientHistoryAndSymptoms"
@@ -122,7 +190,8 @@ const OnboardingSecondStep = () => {
               text={
                 'Conocer el historial clínico y los síntomas de mi paciente.'
               }
-              onClick={handleSelection}
+              isSelected={formData.patientHistoryAndSymptoms}
+              onClick={() => handleSelection('patientHistoryAndSymptoms')}
             />
             <ProfessionalActionBox
               name="treatmentGuide"
@@ -130,7 +199,8 @@ const OnboardingSecondStep = () => {
               text={
                 'Obtener una guía paso a paso para administrar tratamiento a mis pacientes.'
               }
-              onClick={handleSelection}
+              isSelected={formData.treatmentGuide}
+              onClick={() => handleSelection('treatmentGuide')}
             />
             <ProfessionalActionBox
               name="improveKnowledgeCertification"
@@ -138,13 +208,15 @@ const OnboardingSecondStep = () => {
               text={
                 'Mejorar mis conocimientos y obtener un certificado que lo avale.'
               }
-              onClick={handleSelection}
+              isSelected={formData.improveKnowledgeCertification}
+              onClick={() => handleSelection('improveKnowledgeCertification')}
             />
             <ProfessionalActionBox
               name="allOptions"
               imageSrc={BorderImg}
               text={'Todo lo anterior y más.'}
-              onClick={handleSelection}
+              isSelected={formData.allOptions}
+              onClick={() => handleSelection('allOptions')}
             />
           </div>
           <div className="mt-5 w-full">
@@ -160,13 +232,22 @@ const OnboardingSecondStep = () => {
               name="otherOption" // Add a descriptive name attribute
               placeholder="Escribe tu opción aquí"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm md:text-base lg:text-lg"
+              onChange={(e) =>
+                setFormData({ ...formData, otherOption: e.target.value })
+              }
             />
           </div>
           <div className="grid place-items-center mt-5">
+            {creationError && (
+              <div>
+                <SpanError text={creationError} />
+              </div>
+            )}
             <Button
               className="mt-5"
               type="submit"
-              // disabled={Boolean(isCreating || professionalId)}
+              disabled={Boolean(isCreating || !token)}
+              onClick={() => createPreferences(formData, token as string)}
             >
               Continuar
             </Button>
